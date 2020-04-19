@@ -1,17 +1,40 @@
 import React from "react";
-import { Route, Switch } from "react-router-dom";
+import {
+  BrowserRouter as Router,
+  Route,
+  Switch,
+  Redirect,
+} from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
-import Home from "pages/Home";
+import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
+import Navigation from "routes";
 import Topbar from "components/Topbar";
 
-export const Main = () => {
+const theme = createMuiTheme({
+  palette: {
+    background: {
+      default: "#fff",
+    },
+  },
+});
+
+const Main = () => {
   return (
     <main className="main">
-      <CssBaseline />
-      <Topbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-      </Switch>
+      <ThemeProvider theme={theme}>
+        <CssBaseline />
+        <Router>
+          <Topbar />
+          <Switch>
+            <Route exact path="/">
+              <Redirect to="/welcome" />
+            </Route>
+            <Route path="*">
+              <Navigation />
+            </Route>
+          </Switch>
+        </Router>
+      </ThemeProvider>
     </main>
   );
 };
