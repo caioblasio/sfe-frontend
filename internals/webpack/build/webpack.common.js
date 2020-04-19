@@ -4,6 +4,10 @@ const HtmlWebpackPlugin = require("html-webpack-plugin");
 const __root = process.cwd();
 const pkg = require(`${__root}/package.json`);
 
+const { models: MODELS } = require(`${__root}/config/models.json`);
+
+const { steps: STEPS } = require(`${__root}/config/steps.json`);
+
 const BANNER_METADATA = [
   "/*!",
   ` * ${pkg.name} - ${pkg.description}`,
@@ -46,7 +50,9 @@ module.exports = {
   },
   plugins: [
     new DefinePlugin({
-      ENVIRONMENT: process.env.NODE_ENV,
+      ENVIRONMENT: JSON.stringify(process.env.NODE_ENV),
+      MODELS: JSON.stringify(MODELS),
+      STEPS: JSON.stringify(STEPS),
     }),
     new BannerPlugin({
       banner: BANNER_METADATA,
