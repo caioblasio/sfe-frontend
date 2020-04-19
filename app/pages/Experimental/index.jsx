@@ -1,20 +1,27 @@
 import React from "react";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./styles";
-import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
+import ExperimentalContainer from "containers/ExperimentalContainer";
+import Stepper from "components/Stepper";
 
-const Home = () => {
+const Experimental = () => {
   const classes = useStyles();
 
   return (
-    <Grid container spacing={5} className={classes.root} component="section">
-      <Grid item xs={12}>
-        <Typography variant="h4" component="h1">
-          Experimental Data
-        </Typography>
+    <>
+      <Stepper activeStep={0} />
+      <Grid container spacing={4} className={classes.root} component="section">
+        <Grid item xs={12}>
+          <Typography variant="h5" component="h1">
+            Please choose all models you want to apply to your calculation
+          </Typography>
+        </Grid>
+        <Grid item xs={12}>
+          <ExperimentalContainer />
+        </Grid>
       </Grid>
-    </Grid>
+    </>
   );
 };
-export default Home;
+export default Experimental;
