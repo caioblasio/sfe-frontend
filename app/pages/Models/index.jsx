@@ -2,10 +2,10 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import useStyles from "./styles";
 import Grid from "@material-ui/core/Grid";
-import ExperimentalContainer from "containers/ExperimentalContainer";
+import ModelsContainer from "containers/ModelsContainer";
 import Stepper from "components/Stepper";
 
-const Experimental = () => {
+const Models = () => {
   const classes = useStyles();
 
   return (
@@ -18,10 +18,10 @@ const Experimental = () => {
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <ExperimentalContainer />
+          <ModelsContainer />
         </Grid>
       </Grid>
     </>
   );
 };
-export default Experimental;
+export default Models;

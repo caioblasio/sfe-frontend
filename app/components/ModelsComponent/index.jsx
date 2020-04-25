@@ -7,7 +7,7 @@ import FormControlLabel from "@material-ui/core/FormControlLabel";
 import Switch from "@material-ui/core/Switch";
 import useStyles from "./styles";
 
-const ExperimentalComponent = ({ selectedModels, addModel }) => {
+const ModelsComponent = ({ selectedModels, addModel }) => {
   const classes = useStyles();
 
   const [state, setState] = useState(() => {
@@ -67,4 +67,4 @@ const ExperimentalComponent = ({ selectedModels, addModel }) => {
     </form>
   );
 };
-export default ExperimentalComponent;
+export default ModelsComponent;

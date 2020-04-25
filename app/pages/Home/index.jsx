@@ -4,6 +4,7 @@ import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import Grid from "@material-ui/core/Grid";
 import Page from "pages";
+import { modelsURL } from "configs/urls";
 import useStyles from "./styles";
 
 const Home = () => {
@@ -27,7 +28,7 @@ const Home = () => {
             color="primary"
             variant="contained"
             onClick={() => {
-              history.push("/experimental");
+              history.push(modelsURL());
             }}
           >
             Let's get started!
