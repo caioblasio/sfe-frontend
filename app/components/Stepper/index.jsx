@@ -7,7 +7,7 @@ import StepLabel from "@material-ui/core/StepLabel";
 const TopStepper = ({ activeStep }) => {
   // const classes = useStyles();
   return (
-    <Stepper activeStep={activeStep} alternativeLabel>
+    <Stepper activeStep={activeStep}>
       {STEPS.map((label) => (
         <Step key={label}>
           <StepLabel>{label}</StepLabel>

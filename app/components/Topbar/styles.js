@@ -8,6 +8,9 @@ const useStyles = makeStyles((theme) => {
       boxShadow: "none",
       borderBottom: `1px solid ${theme.palette.divider}`,
     },
+    brand: {
+      flexGrow: 1,
+    },
   };
 });
 
