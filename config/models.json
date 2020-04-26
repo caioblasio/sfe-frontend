@@ -4,43 +4,67 @@
       "id": 1,
       "name": "Sovova",
       "year": "1994",
-      "option": "\"A\""
+      "option": "\"A\"",
+      "fields": [
+        "aa",
+        "dsolid",
+        "dpa",
+        "msolid",
+        "ep",
+        "dfluid",
+        "qq",
+        "ttcer",
+        "solubility",
+        "viscosity",
+        "dabf",
+        "bb",
+        "eb",
+        "hc",
+        "dc",
+        "temperature"
+      ]
     },
     "reverchon": {
       "id": 2,
       "name": "Reverchon",
       "year": "1993",
-      "option": "\"B\""
+      "option": "\"B\"",
+      "fields": []
     },
     "esquivel": {
       "id": 3,
       "name": "Esquivel",
       "year": "1999",
-      "option": "\"C\""
+      "option": "\"C\"",
+      "fields": []
     },
     "zekovic": {
       "id": 4,
       "name": "Zekovic",
       "year": "2003",
-      "option": "\"D\""
+      "option": "\"D\"",
+      "fields": []
     },
     "nguyen": {
       "id": 5,
       "name": "Nguyen",
       "year": "1991",
-      "option": "\"E\""
+      "option": "\"E\"",
+      "fields": []
     },
     "verljkovic": {
       "id": 6,
       "name": "Veljkovic and Milenovic",
       "year": "2002",
-      "option": "\"F\""
+      "option": "\"F\"",
+      "fields": []
     },
     "pkm": {
       "id": 7,
       "name": "PKM",
       "year": "2012",
-      "option": "\"G\""
+      "option": "\"G\"",
+      "fields": []
     }
   }
 }

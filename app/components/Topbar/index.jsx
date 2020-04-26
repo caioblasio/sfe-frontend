@@ -33,13 +33,13 @@ const Topbar = () => {
         >
           <img src={Logo} alt="sfe" width="175" />
         </Link>
-        <Button color="textPrimary" onClick={onItemClick(backgroundURL())}>
+        <Button color="default" onClick={onItemClick(backgroundURL())}>
           Background
         </Button>
-        <Button color="textPrimary" onClick={onItemClick(instructionsURL())}>
+        <Button color="default" onClick={onItemClick(instructionsURL())}>
           Instructions
         </Button>
-        <Button color="textPrimary" onClick={onItemClick(aboutURL())}>
+        <Button color="default" onClick={onItemClick(aboutURL())}>
           About
         </Button>
       </Toolbar>

@@ -6,4 +6,7 @@ const selectState = ({ experimentalData }) => experimentalData || initialState;
 const getModels = () =>
   createSelector(selectState, (state) => state.get("models").toJS());
 
-export { getModels };
+const getValues = () =>
+  createSelector(selectState, (state) => state.get("values").toJS());
+
+export { getModels, getValues };

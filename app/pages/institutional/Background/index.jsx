@@ -33,7 +33,6 @@ const Background = () => {
                 isolation (no residual solvent amounts in the final extract).
               </Typography>
             </Grid>
-            <Divider />
             <Grid item sm={6}>
               <Typography>
                 SFE is illustrated in Figure 1: the solvent is pumped up to the

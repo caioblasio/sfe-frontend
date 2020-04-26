@@ -8,6 +8,8 @@ const { models: MODELS } = require(`${__root}/config/models.json`);
 
 const { steps: STEPS } = require(`${__root}/config/steps.json`);
 
+const { fields: FIELDS } = require(`${__root}/config/fields.json`);
+
 const BANNER_METADATA = [
   "/*!",
   ` * ${pkg.name} - ${pkg.description}`,
@@ -53,6 +55,7 @@ module.exports = {
       ENVIRONMENT: JSON.stringify(process.env.NODE_ENV),
       MODELS: JSON.stringify(MODELS),
       STEPS: JSON.stringify(STEPS),
+      FIELDS: JSON.stringify(FIELDS),
     }),
     new BannerPlugin({
       banner: BANNER_METADATA,
