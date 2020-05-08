@@ -1,5 +1,9 @@
 import { fromJS } from "immutable";
-import { CHANGE_VALUES, ADD_MODEL } from "./constants";
+import {
+  CHANGE_VALUES,
+  ADD_MODEL,
+  CHANGE_CALCULATION_VALUES,
+} from "./constants";
 
 export const initialState = fromJS({
   values: {
@@ -21,6 +25,11 @@ export const initialState = fromJS({
     temperature: "",
   },
   models: [],
+  calculation: {
+    maxfun: "",
+    nh: "",
+    nt: "",
+  },
 });
 
 const reducer = (state = initialState, { type, payload }) => {
@@ -46,6 +55,12 @@ const reducer = (state = initialState, { type, payload }) => {
 
     case ADD_MODEL:
       return state.set("models", fromJS(payload));
+
+    case CHANGE_CALCULATION_VALUES:
+      return state
+        .setIn(["calculation", "maxfun"], payload.maxfun)
+        .setIn(["calculation", "nh"], payload.nh)
+        .setIn(["calculation", "nt"], payload.nt);
 
     default:
       return state;

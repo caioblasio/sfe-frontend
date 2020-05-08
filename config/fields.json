@@ -81,6 +81,23 @@
         "name": "temperature",
         "label": "Temperature (K)"
       }
+    },
+    "calculation": {
+      "maxfun": {
+        "id": 1,
+        "name": "maxfun",
+        "label": "Max number of iterations"
+      },
+      "nh": {
+        "id": 2,
+        "name": "nh",
+        "label": "Number of space iteration steps"
+      },
+      "nt": {
+        "id": 3,
+        "name": "nt",
+        "label": "Number of time iteration steps"
+      }
     }
   }
 }

@@ -4,6 +4,8 @@ import { TransitionGroup, CSSTransition } from "react-transition-group";
 import Home from "pages/Home";
 import Models from "pages/Models";
 import Experimental from "pages/Experimental";
+import Extraction from "pages/Extraction";
+import Calculation from "pages/Calculation";
 import About from "pages/institutional/About";
 import Background from "pages/institutional/Background";
 
@@ -12,6 +14,8 @@ import {
   modelsURL,
   experimentalURL,
   instructionsURL,
+  extractionURL,
+  calculationURL,
   backgroundURL,
   aboutURL,
 } from "configs/urls";
@@ -26,6 +30,8 @@ const Navigation = () => {
           <Route path={welcomeURL()} component={Home} />
           <Route path={modelsURL()} component={Models} />
           <Route path={experimentalURL()} component={Experimental} />
+          <Route path={extractionURL()} component={Extraction} />
+          <Route path={calculationURL()} component={Calculation} />
           <Route path={aboutURL()} component={About} />
           <Route path={backgroundURL()} component={Background} />
         </Switch>

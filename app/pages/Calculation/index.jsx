@@ -4,7 +4,10 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
-import { getModels, getValues } from "providers/ExperimentalData/selectors";
+import {
+  getModels,
+  getCalculationValues,
+} from "providers/ExperimentalData/selectors";
 import useStyles from "./styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -12,10 +15,14 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Stepper from "components/Stepper";
 import Page from "pages";
-import { changeValues } from "providers/ExperimentalData/actions";
-import { modelsURL, extractionURL } from "configs/urls";
+import { changeCalculationValues } from "providers/ExperimentalData/actions";
+import { modelsURL, previewURL } from "configs/urls";
 
-const Experimental = ({ values, selectedModels, changeValues }) => {
+const Calculation = ({
+  calculationValues,
+  selectedModels,
+  changeCalculationValues,
+}) => {
   const classes = useStyles();
   const history = useHistory();
 
@@ -27,47 +34,39 @@ const Experimental = ({ values, selectedModels, changeValues }) => {
 
   const { register, errors, handleSubmit } = useForm();
 
-  const getRequiredFields = () => {
-    let requiredFields = [];
-    selectedModels.forEach((selectedModel) => {
-      requiredFields = [...requiredFields, ...MODELS[selectedModel].fields];
-    });
-    return [...new Set(requiredFields)];
-  };
-
   const onSubmit = (data) => {
-    changeValues(data);
-    history.push(extractionURL());
+    changeCalculationValues(data);
+    history.push(previewURL());
   };
 
   return (
     <Page>
-      <Stepper activeStep={1} />
+      <Stepper activeStep={3} />
       <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12}>
           <Typography variant="h5" component="h1">
-            Please fill in all the experimental data
+            Please fill the parameters for calculation
           </Typography>
         </Grid>
         <Grid item xs={12}>
           <Container maxWidth="md">
             <form onSubmit={handleSubmit(onSubmit)}>
               <Grid container spacing={4}>
-                {getRequiredFields().map((field) => (
+                {Object.keys(FIELDS.calculation).map((field) => (
                   <Grid key={field} item sm={3}>
                     <TextField
                       error={!!errors[field]}
-                      name={field}
+                      name={FIELDS.calculation[field].name}
                       inputRef={register({
                         required: "This field is required",
                         pattern: {
-                          value: /^[+-]?([0-9]*[.])?[0-9]+$/,
-                          message: "Must be a number (use . as separator)",
+                          value: /^[1-9]\d*$/,
+                          message: "Must be a positive number",
                         },
                       })}
-                      label={FIELDS.extraction[field].label}
+                      label={FIELDS.calculation[field].label}
                       variant="outlined"
-                      defaultValue={values[field]}
+                      defaultValue={calculationValues[field]}
                       helperText={errors[field]?.message}
                     />
                   </Grid>
@@ -92,12 +91,13 @@ const Experimental = ({ values, selectedModels, changeValues }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  values: getValues(),
+  calculationValues: getCalculationValues(),
   selectedModels: getModels(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeValues: (values) => dispatch(changeValues(values)),
+  changeCalculationValues: (values) =>
+    dispatch(changeCalculationValues(values)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Experimental);
+export default connect(mapStateToProps, mapDispatchToProps)(Calculation);

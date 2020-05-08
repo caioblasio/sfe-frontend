@@ -9,4 +9,7 @@ const getModels = () =>
 const getValues = () =>
   createSelector(selectState, (state) => state.get("values").toJS());
 
-export { getModels, getValues };
+const getCalculationValues = () =>
+  createSelector(selectState, (state) => state.get("calculation").toJS());
+
+export { getModels, getValues, getCalculationValues };
