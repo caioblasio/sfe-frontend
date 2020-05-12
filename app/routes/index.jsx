@@ -6,6 +6,7 @@ import Models from "pages/Models";
 import Experimental from "pages/Experimental";
 import Extraction from "pages/Extraction";
 import Calculation from "pages/Calculation";
+import Preview from "pages/Preview";
 import About from "pages/institutional/About";
 import Background from "pages/institutional/Background";
 
@@ -16,6 +17,7 @@ import {
   instructionsURL,
   extractionURL,
   calculationURL,
+  previewURL,
   backgroundURL,
   aboutURL,
 } from "configs/urls";
@@ -32,6 +34,7 @@ const Navigation = () => {
           <Route path={experimentalURL()} component={Experimental} />
           <Route path={extractionURL()} component={Extraction} />
           <Route path={calculationURL()} component={Calculation} />
+          <Route path={previewURL()} component={Preview} />
           <Route path={aboutURL()} component={About} />
           <Route path={backgroundURL()} component={Background} />
         </Switch>
