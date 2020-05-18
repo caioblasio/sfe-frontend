@@ -5,11 +5,11 @@ import {
   FETCH_RESULTS_SUCCESS,
 } from "./constants";
 
-export function fetchResults(id, data) {
+export function fetchResults(models, data) {
   return {
     type: FETCH_RESULTS,
     payload: {
-      id,
+      models,
       data,
     },
   };

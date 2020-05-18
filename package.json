@@ -10,7 +10,7 @@
     "build": "npx webpack --config ./internals/webpack/webpack.build.js",
     "build:prod": "npx cross-env NODE_ENV=prod npm run build",
     "build:dev": "npx cross-env NODE_ENV=dev npm run build -- --colors --progress",
-    "start": "npx webpack-dev-server --config ./internals/webpack/webpack.serve.js --colors --progress",
+    "start": "npx cross-env NODE_ENV=development webpack-dev-server --config ./internals/webpack/webpack.serve.js --colors --progress",
     "test": "npx cross-env NODE_ENV=test npx jest --coverage --verbose",
     "test:watch": "npx cross-env NODE_ENV=test npx jest --watchAll"
   },

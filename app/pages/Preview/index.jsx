@@ -22,6 +22,7 @@ import {
   experimentalURL,
   extractionURL,
   calculationURL,
+  resultsURL,
 } from "configs/urls";
 
 const Preview = ({
@@ -46,6 +47,14 @@ const Preview = ({
           <Typography variant="h5" component="h1">
             Your simulation data
           </Typography>
+          <Button
+            size="large"
+            color="primary"
+            variant="contained"
+            onClick={() => history.push(resultsURL())}
+          >
+            Next
+          </Button>
         </Grid>
         <Grid container spacing={4}>
           <Grid item xs={12}>

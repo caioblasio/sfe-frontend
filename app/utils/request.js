@@ -6,6 +6,7 @@ export class ResponseError extends Error {
 }
 
 export default async (url, options = {}) => {
+  console.log("options", options);
   const response = await fetch(url, options);
 
   if (!response.ok) {

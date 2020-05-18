@@ -1,16 +1,26 @@
 import request, { ResponseError } from "utils/request";
 
-function* callApi(url, method, body, onSuccess, onError = () => {}) {
+function* callApi(
+  url,
+  method,
+  reqHeaders,
+  body,
+  onSuccess,
+  onError = () => {}
+) {
   let response;
 
   try {
     let requestObj = {
       method,
+      headers: reqHeaders,
     };
 
     if (body) {
       requestObj = { ...requestObj, body };
     }
+
+    console.log("requestObj", requestObj);
 
     response = yield request(url, requestObj);
   } catch (err) {
@@ -28,18 +38,27 @@ function* callApi(url, method, body, onSuccess, onError = () => {}) {
   }
 }
 
-export function* callApiData(url, method, body, onSuccess, onError) {
+export function* callApiData(
+  url,
+  method,
+  reqHeaders,
+  body,
+  onSuccess,
+  onError
+) {
   yield callApi(
     url,
     method,
-    body,
+    { ...reqHeaders, "Content-Type": "application/json" },
+    JSON.stringify(body),
     function* handleSuccess(response) {
+      const { headers } = response;
       if (onSuccess) {
         const data = yield response
           .text()
           .then((text) => (text ? JSON.parse(text) : undefined));
 
-        yield onSuccess(data);
+        yield onSuccess(headers, data);
       }
     },
     onError
