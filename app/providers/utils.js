@@ -1,4 +1,6 @@
 import request, { ResponseError } from "utils/request";
+import { put } from "redux-saga/effects";
+import { StatusActions } from "providers";
 
 function* callApi(
   url,
@@ -6,7 +8,8 @@ function* callApi(
   reqHeaders,
   body,
   onSuccess,
-  onError = () => {}
+  onError = () => {},
+  statuId = url
 ) {
   let response;
 
@@ -20,10 +23,15 @@ function* callApi(
       requestObj = { ...requestObj, body };
     }
 
-    console.log("requestObj", requestObj);
+    yield put(StatusActions.set(statuId, "PENDING"));
 
     response = yield request(url, requestObj);
+
+    if (onSuccess) {
+      yield onSuccess(response);
+    }
   } catch (err) {
+    yield put(StatusActions.set(statuId, "ERROR"));
     if (!(err instanceof ResponseError)) {
       console.error(err.message);
       return;
@@ -33,9 +41,7 @@ function* callApi(
     return;
   }
 
-  if (onSuccess) {
-    yield onSuccess(response);
-  }
+  yield put(StatusActions.set(statuId, "SUCCESS"));
 }
 
 export function* callApiData(
@@ -44,7 +50,8 @@ export function* callApiData(
   reqHeaders,
   body,
   onSuccess,
-  onError
+  onError,
+  statusId
 ) {
   yield callApi(
     url,
@@ -61,6 +68,7 @@ export function* callApiData(
         yield onSuccess(headers, data);
       }
     },
-    onError
+    onError,
+    statusId
   );
 }

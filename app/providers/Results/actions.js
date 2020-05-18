@@ -5,7 +5,7 @@ import {
   FETCH_RESULTS_SUCCESS,
 } from "./constants";
 
-export function fetchResults(models, data) {
+function fetchResults(models, data) {
   return {
     type: FETCH_RESULTS,
     payload: {
@@ -15,13 +15,13 @@ export function fetchResults(models, data) {
   };
 }
 
-export function fetchResultsWaiting() {
+function fetchResultsWaiting() {
   return {
     type: FETCH_RESULTS_WAITING,
   };
 }
 
-export function fetchResultsSuccess(id, data) {
+function fetchResultsSuccess(id, data) {
   return {
     type: FETCH_RESULTS_SUCCESS,
     payload: {
@@ -31,15 +31,23 @@ export function fetchResultsSuccess(id, data) {
   };
 }
 
-export function fetchResultsFailure(message = "") {
+function fetchResultsFailure(message = "") {
   return {
     type: FETCH_RESULTS_FAILURE,
     payload: message,
   };
 }
 
-export function resetResults() {
+function resetResults() {
   return {
     type: RESET_RESULTS,
   };
 }
+
+export default {
+  fetchResults,
+  fetchResultsFailure,
+  fetchResultsSuccess,
+  fetchResultsWaiting,
+  resetResults,
+};

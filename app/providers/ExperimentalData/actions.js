@@ -4,23 +4,29 @@ import {
   CHANGE_CALCULATION_VALUES,
 } from "./constants";
 
-export function changeValues(data = {}) {
+function changeValues(data = {}) {
   return {
     type: CHANGE_VALUES,
     payload: data,
   };
 }
 
-export function addModel(model = []) {
+function addModel(model = []) {
   return {
     type: ADD_MODEL,
     payload: model,
   };
 }
 
-export function changeCalculationValues(data = {}) {
+function changeCalculationValues(data = {}) {
   return {
     type: CHANGE_CALCULATION_VALUES,
     payload: data,
   };
 }
+
+export default {
+  changeValues,
+  addModel,
+  changeCalculationValues,
+};

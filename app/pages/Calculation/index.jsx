@@ -4,10 +4,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
-import {
-  getModels,
-  getCalculationValues,
-} from "providers/ExperimentalData/selectors";
+import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
 import useStyles from "./styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -15,7 +12,6 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Stepper from "components/Stepper";
 import Page from "pages";
-import { changeCalculationValues } from "providers/ExperimentalData/actions";
 import { modelsURL, previewURL } from "configs/urls";
 
 const Calculation = ({
@@ -91,13 +87,13 @@ const Calculation = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  calculationValues: getCalculationValues(),
-  selectedModels: getModels(),
+  calculationValues: ExperimentalDataSelectors.getCalculationValues(),
+  selectedModels: ExperimentalDataSelectors.getModels(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
   changeCalculationValues: (values) =>
-    dispatch(changeCalculationValues(values)),
+    dispatch(ExperimentalDataActions.changeCalculationValues(values)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Calculation);

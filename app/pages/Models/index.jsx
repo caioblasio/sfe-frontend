@@ -13,8 +13,7 @@ import Switch from "@material-ui/core/Switch";
 import Button from "@material-ui/core/Button";
 import Page from "pages";
 import Stepper from "components/Stepper";
-import { getModels } from "providers/ExperimentalData/selectors";
-import { addModel } from "providers/ExperimentalData/actions";
+import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
 import { experimentalURL } from "configs/urls";
 import useStyles from "./styles";
 
@@ -118,11 +117,11 @@ const Models = ({ selectedModels, addModels }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  selectedModels: getModels(),
+  selectedModels: ExperimentalDataSelectors.getModels(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addModels: (models) => dispatch(addModel(models)),
+  addModels: (models) => dispatch(ExperimentalDataActions.addModel(models)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Models);

@@ -4,7 +4,7 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
-import { getModels, getValues } from "providers/ExperimentalData/selectors";
+import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
 import useStyles from "./styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -12,7 +12,6 @@ import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
 import Stepper from "components/Stepper";
 import Page from "pages";
-import { changeValues } from "providers/ExperimentalData/actions";
 import { modelsURL, extractionURL } from "configs/urls";
 
 const Experimental = ({ values, selectedModels, changeValues }) => {
@@ -92,12 +91,13 @@ const Experimental = ({ values, selectedModels, changeValues }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  values: getValues(),
-  selectedModels: getModels(),
+  values: ExperimentalDataSelectors.getValues(),
+  selectedModels: ExperimentalDataSelectors.getModels(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  changeValues: (values) => dispatch(changeValues(values)),
+  changeValues: (values) =>
+    dispatch(ExperimentalDataActions.changeValues(values)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Experimental);

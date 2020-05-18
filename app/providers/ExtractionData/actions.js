@@ -1,8 +1,12 @@
 import { ADD_POINTS } from "./constants";
 
-export function addPoints(points = []) {
+function addPoints(points = []) {
   return {
     type: ADD_POINTS,
     payload: points,
   };
 }
+
+export default {
+  addPoints,
+};

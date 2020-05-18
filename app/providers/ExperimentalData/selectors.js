@@ -12,4 +12,4 @@ const getValues = () =>
 const getCalculationValues = () =>
   createSelector(selectState, (state) => state.get("calculation").toJS());
 
-export { getModels, getValues, getCalculationValues };
+export default { getModels, getValues, getCalculationValues };

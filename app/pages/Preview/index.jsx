@@ -3,12 +3,7 @@ import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
-import {
-  getModels,
-  getCalculationValues,
-  getValues,
-} from "providers/ExperimentalData/selectors";
-import { getPoints } from "providers/ExtractionData/selectors";
+import { ExperimentalDataSelectors, ExtractionDataSelectors } from "providers";
 import useStyles from "./styles";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -210,10 +205,10 @@ const Preview = ({
 };
 
 const mapStateToProps = createStructuredSelector({
-  calculationValues: getCalculationValues(),
-  experimentalValues: getValues(),
-  selectedModels: getModels(),
-  points: getPoints(),
+  calculationValues: ExperimentalDataSelectors.getCalculationValues(),
+  experimentalValues: ExperimentalDataSelectors.getValues(),
+  selectedModels: ExperimentalDataSelectors.getModels(),
+  points: ExtractionDataSelectors.getPoints(),
 });
 
 export default connect(mapStateToProps)(Preview);

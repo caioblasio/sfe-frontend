@@ -17,9 +17,11 @@ import TableRow from "@material-ui/core/TableRow";
 import Stepper from "components/Stepper";
 import Paper from "@material-ui/core/Paper";
 import Page from "pages";
-import { getModels } from "providers/ExperimentalData/selectors";
-import { getPoints } from "providers/ExtractionData/selectors";
-import { addPoints } from "providers/ExtractionData/actions";
+import {
+  ExtractionDataActions,
+  ExtractionDataSelectors,
+  ExperimentalDataSelectors,
+} from "providers";
 import useStyles from "./styles";
 import { modelsURL, calculationURL } from "configs/urls";
 
@@ -162,12 +164,12 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  points: getPoints(),
-  selectedModels: getModels(),
+  points: ExtractionDataSelectors.getPoints(),
+  selectedModels: ExperimentalDataSelectors.getModels(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
-  addPoints: (values) => dispatch(addPoints(values)),
+  addPoints: (values) => dispatch(ExtractionDataActions.addPoints(values)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Extraction);
