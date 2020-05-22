@@ -6,10 +6,6 @@ import { callApiData } from "providers/utils";
 export function* fetchResults({ payload }) {
   const { models, data } = payload;
 
-  console.log(MODELS);
-
-  yield put(Actions.fetchResultsWaiting());
-
   yield all(
     models.map((model) =>
       callApiData(

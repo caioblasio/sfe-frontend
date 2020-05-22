@@ -6,9 +6,7 @@ const API_ENVIRONMENTS_URL = {
 export const SCOPE = "providers/Results";
 
 export const FETCH_RESULTS = `${SCOPE}/FETCH_RESULTS`;
-export const FETCH_RESULTS_WAITING = `${SCOPE}/FETCH_RESULTS_WAITING`;
 export const FETCH_RESULTS_SUCCESS = `${SCOPE}/FETCH_RESULTS_SUCCESS`;
-export const FETCH_RESULTS_FAILURE = `${SCOPE}/FETCH_RESULTS_FAILURE`;
 export const RESET_RESULTS = `${SCOPE}/RESET_RESULTS`;
 
 export const apiResultsUrl = `${API_ENVIRONMENTS_URL[ENVIRONMENT]}/api/fortran`;

@@ -53,7 +53,7 @@ const Preview = ({
         </Grid>
         <Grid container spacing={4}>
           <Grid item xs={12}>
-            <Card className={classes.root} variant="outlined">
+            <Card variant="outlined">
               <CardContent>
                 <Typography
                   className={classes.title}
@@ -63,7 +63,7 @@ const Preview = ({
                   Models Selected
                 </Typography>
                 <Typography variant="h5" component="h2">
-                  {selectedModels.join(", ")}
+                  {selectedModels.map((model) => MODELS[model].name).join(", ")}
                 </Typography>
               </CardContent>
               <CardActions className={classes.cardActions}>
@@ -74,11 +74,7 @@ const Preview = ({
             </Card>
           </Grid>
           <Grid item xs={6} className={classes.flexGrid}>
-            <Card
-              className={classes.root}
-              variant="outlined"
-              className={classes.flexCard}
-            >
+            <Card variant="outlined" className={classes.flexCard}>
               <CardContent className={classes.flexCardContent}>
                 <Typography
                   className={classes.title}
@@ -113,11 +109,7 @@ const Preview = ({
             </Card>
           </Grid>
           <Grid item xs={6} className={classes.flexGrid}>
-            <Card
-              className={classes.root}
-              variant="outlined"
-              className={classes.flexCard}
-            >
+            <Card variant="outlined" className={classes.flexCard}>
               <CardContent className={classes.flexCardContent}>
                 <Typography
                   className={classes.title}
@@ -164,7 +156,7 @@ const Preview = ({
             </Card>
           </Grid>
           <Grid item xs={12}>
-            <Card className={classes.root} variant="outlined">
+            <Card variant="outlined">
               <CardContent>
                 <Typography
                   className={classes.title}

@@ -1,8 +1,7 @@
 import {
   FETCH_RESULTS,
-  FETCH_RESULTS_WAITING,
-  FETCH_RESULTS_FAILURE,
   FETCH_RESULTS_SUCCESS,
+  RESET_RESULTS,
 } from "./constants";
 
 function fetchResults(models, data) {
@@ -12,12 +11,6 @@ function fetchResults(models, data) {
       models,
       data,
     },
-  };
-}
-
-function fetchResultsWaiting() {
-  return {
-    type: FETCH_RESULTS_WAITING,
   };
 }
 
@@ -31,13 +24,6 @@ function fetchResultsSuccess(id, data) {
   };
 }
 
-function fetchResultsFailure(message = "") {
-  return {
-    type: FETCH_RESULTS_FAILURE,
-    payload: message,
-  };
-}
-
 function resetResults() {
   return {
     type: RESET_RESULTS,
@@ -46,8 +32,6 @@ function resetResults() {
 
 export default {
   fetchResults,
-  fetchResultsFailure,
   fetchResultsSuccess,
-  fetchResultsWaiting,
   resetResults,
 };

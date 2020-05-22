@@ -22,49 +22,76 @@
         "hc",
         "dc",
         "temperature"
-      ]
+      ],
+      "result": {
+        "k1": "Solid-phase mass transfer",
+        "k2": "Fluid-phase mass transfer",
+        "k3": "Critical Concentration"
+      }
     },
     "reverchon": {
       "id": 2,
       "name": "Reverchon",
       "year": "1993",
       "option": "\"B\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Empirical Parameter"
+      }
     },
     "esquivel": {
       "id": 3,
       "name": "Esquivel",
       "year": "1999",
       "option": "\"C\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Empirical Parameter"
+      }
     },
     "zekovic": {
       "id": 4,
       "name": "Zekovic",
       "year": "2003",
       "option": "\"D\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Empirical Parameter",
+        "k2": "Empirical Parameter"
+      }
     },
     "nguyen": {
       "id": 5,
       "name": "Nguyen",
       "year": "1991",
       "option": "\"E\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Empirical Parameter"
+      }
     },
     "verljkovic": {
       "id": 6,
       "name": "Veljkovic and Milenovic",
       "year": "2002",
       "option": "\"F\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Solid-phase mass transfer coefficient",
+        "k2": "Fluid-phase mass transfer coefficient",
+        "k3": "Critical Concentration coefficient"
+      }
     },
     "pkm": {
       "id": 7,
       "name": "PKM",
       "year": "2012",
       "option": "\"G\"",
-      "fields": []
+      "fields": [],
+      "result": {
+        "k1": "Empirical Parameter",
+        "k2": "Empirical Parameter"
+      }
     }
   }
 }
