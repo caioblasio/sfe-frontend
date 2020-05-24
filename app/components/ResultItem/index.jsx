@@ -21,8 +21,8 @@ const ResultItem = ({ model, values, data }) => {
     <Table>
       <TableHead>
         <TableRow>
-          {Object.values(MODELS[model].result).map((param) => (
-            <TableCell align="right">{param}</TableCell>
+          {Object.keys(MODELS[model].result).map((key) => (
+            <TableCell align="right">{`${MODELS[model].result[key]} (${key})`}</TableCell>
           ))}
         </TableRow>
       </TableHead>

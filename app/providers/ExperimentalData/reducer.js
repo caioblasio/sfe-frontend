@@ -3,6 +3,7 @@ import {
   CHANGE_VALUES,
   ADD_MODEL,
   CHANGE_CALCULATION_VALUES,
+  RESET_VALUES,
 } from "./constants";
 
 export const initialState = fromJS({
@@ -61,6 +62,25 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["calculation", "maxfun"], payload.maxfun)
         .setIn(["calculation", "nh"], payload.nh)
         .setIn(["calculation", "nt"], payload.nt);
+
+    case RESET_VALUES:
+      return state
+        .setIn(["values", "aa"], "")
+        .setIn(["values", "dsolid"], "")
+        .setIn(["values", "dpa"], "")
+        .setIn(["values", "msolid"], "")
+        .setIn(["values", "ep"], "")
+        .setIn(["values", "dfluid"], "")
+        .setIn(["values", "qq"], "")
+        .setIn(["values", "ttcer"], "")
+        .setIn(["values", "solubility"], "")
+        .setIn(["values", "viscosity"], "")
+        .setIn(["values", "dabf"], "")
+        .setIn(["values", "bb"], "")
+        .setIn(["values", "eb"], "")
+        .setIn(["values", "hc"], "")
+        .setIn(["values", "dc"], "")
+        .setIn(["values", "temperature"], "");
 
     default:
       return state;

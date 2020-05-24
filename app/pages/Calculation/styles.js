@@ -4,6 +4,9 @@ const useStyles = makeStyles((theme) => ({
   root: {
     textAlign: "center",
   },
+  field: {
+    width: "100%",
+  },
 }));
 
 export default useStyles;

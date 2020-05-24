@@ -1,22 +1,16 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
-import {
-  ExperimentalDataSelectors,
-  ExtractionDataSelectors,
-  ResultsActions,
-  StatusSelectors,
-} from "providers";
-
+import { ExperimentalDataSelectors, StatusSelectors } from "providers";
+import useStyles from "./styles";
 import ResultsProvider from "providers/Results";
-//import useStyles from "./styles";
 import Page from "pages";
 import { modelsURL } from "configs/urls";
 import Loading from "components/Loading";
 
 const Results = ({ selectedModels, isLoading }) => {
-  //const classes = useStyles();
+  const classes = useStyles();
   const history = useHistory();
 
   useEffect(() => {
@@ -28,7 +22,7 @@ const Results = ({ selectedModels, isLoading }) => {
   return (
     <>
       <Loading open={isLoading} />
-      <Page>
+      <Page className={classes.root}>
         <ResultsProvider />
       </Page>
     </>
@@ -40,9 +34,4 @@ const mapStateToProps = createStructuredSelector({
   isLoading: StatusSelectors.isLoading(),
 });
 
-const mapDispatchToProps = (dispatch) => ({
-  fetchResults: (models, data) =>
-    dispatch(ResultsActions.fetchResults(models, data)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(Results);
+export default connect(mapStateToProps)(Results);

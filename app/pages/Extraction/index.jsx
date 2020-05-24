@@ -16,6 +16,8 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Stepper from "components/Stepper";
 import Paper from "@material-ui/core/Paper";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import Page from "pages";
 import {
   ExtractionDataActions,
@@ -114,8 +116,12 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
                         <Table>
                           <TableHead>
                             <TableRow>
-                              <TableCell align="center">X coordinate</TableCell>
-                              <TableCell align="center">Y coordinate</TableCell>
+                              <TableCell align="center">
+                                Extraction Time (min)
+                              </TableCell>
+                              <TableCell align="center">
+                                Extracted Mass (g)
+                              </TableCell>
                             </TableRow>
                           </TableHead>
                           <TableBody>{generateRows()}</TableBody>
@@ -144,11 +150,25 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
                     </Grid>
                   </Grid>
                 </Grid>
-                <Grid item xs={12}>
+                <Grid item xs={6}>
                   <Button
                     size="large"
-                    color="primary"
                     variant="contained"
+                    color="default"
+                    startIcon={<NavigateBeforeIcon />}
+                    onClick={() => {
+                      history.goBack();
+                    }}
+                  >
+                    Back
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    color="primary"
+                    endIcon={<NavigateNextIcon />}
                     type="submit"
                   >
                     Next

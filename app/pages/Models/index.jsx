@@ -105,7 +105,7 @@ const Models = ({ selectedModels, addModels }) => {
                   variant="contained"
                   type="submit"
                 >
-                  Alright, let's proceed!
+                  Start Modelling
                 </Button>
               </Grid>
             </Grid>

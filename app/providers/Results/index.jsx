@@ -35,8 +35,6 @@ const Provider = ({
     fetchResults(selectedModels, data);
   }, [selectedModels, experimentalValues, calculationValues]);
 
-  console.log(results);
-
   return (
     <Grid container spacing={4}>
       <Grid item xs={12}>

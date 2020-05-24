@@ -1,8 +1,3 @@
 {
-  "steps": [
-    "Models",
-    "Experimental Data",
-    "Extraction Data",
-    "Calculation Data"
-  ]
+  "steps": ["Models", "Physical Data", "Extraction Data", "Calculation Data"]
 }

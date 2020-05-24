@@ -10,6 +10,8 @@ import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
 import TextField from "@material-ui/core/TextField";
 import Container from "@material-ui/core/Container";
+import NavigateNextIcon from "@material-ui/icons/NavigateNext";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import Stepper from "components/Stepper";
 import Page from "pages";
 import { modelsURL, previewURL } from "configs/urls";
@@ -47,10 +49,11 @@ const Calculation = ({
         <Grid item xs={12}>
           <Container maxWidth="md">
             <form onSubmit={handleSubmit(onSubmit)}>
-              <Grid container spacing={4}>
+              <Grid container spacing={8}>
                 {Object.keys(FIELDS.calculation).map((field) => (
-                  <Grid key={field} item sm={3}>
+                  <Grid key={field} item sm={4}>
                     <TextField
+                      className={classes.field}
                       error={!!errors[field]}
                       name={FIELDS.calculation[field].name}
                       inputRef={register({
@@ -67,12 +70,26 @@ const Calculation = ({
                     />
                   </Grid>
                 ))}
-                <Grid item xs={12}>
+                <Grid item xs={6}>
+                  <Button
+                    size="large"
+                    variant="contained"
+                    color="default"
+                    startIcon={<NavigateBeforeIcon />}
+                    onClick={() => {
+                      history.goBack();
+                    }}
+                  >
+                    Back
+                  </Button>
+                </Grid>
+                <Grid item xs={6}>
                   <Button
                     size="large"
                     color="primary"
                     variant="contained"
                     type="submit"
+                    endIcon={<NavigateNextIcon />}
                   >
                     Next
                   </Button>

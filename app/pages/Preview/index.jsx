@@ -11,6 +11,8 @@ import Container from "@material-ui/core/Container";
 import Card from "@material-ui/core/Card";
 import CardActions from "@material-ui/core/CardActions";
 import CardContent from "@material-ui/core/CardContent";
+import PlayArrowIcon from "@material-ui/icons/PlayArrow";
+import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import Page from "pages";
 import {
   modelsURL,
@@ -29,27 +31,51 @@ const Preview = ({
   const classes = useStyles();
   const history = useHistory();
 
+  const hasPhysicalData = !Object.values(experimentalValues).every(
+    (value) => value === ""
+  );
+
   useEffect(() => {
     if (!!!selectedModels.length) {
-      //history.push(modelsURL());
+      history.push(modelsURL());
     }
   }, []);
 
   return (
     <Page>
-      <Grid container spacing={4}>
+      <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12}>
-          <Typography variant="h5" component="h1">
-            Your simulation data
-          </Typography>
-          <Button
-            size="large"
-            color="primary"
-            variant="contained"
-            onClick={() => history.push(resultsURL())}
-          >
-            Next
-          </Button>
+          <Grid container spacing={4} className={classes.navigation}>
+            <Grid item xs={12}>
+              <Typography variant="h5" component="h1">
+                Your simulation data
+              </Typography>
+            </Grid>
+            <Grid item xs={6}>
+              <Button
+                size="large"
+                variant="contained"
+                color="default"
+                startIcon={<NavigateBeforeIcon />}
+                onClick={() => {
+                  history.goBack();
+                }}
+              >
+                Back
+              </Button>
+            </Grid>
+            <Grid item xs={6}>
+              <Button
+                size="large"
+                color="primary"
+                variant="contained"
+                onClick={() => history.push(resultsURL())}
+                endIcon={<PlayArrowIcon />}
+              >
+                Calculate
+              </Button>
+            </Grid>
+          </Grid>
         </Grid>
         <Grid container spacing={4}>
           <Grid item xs={12}>
@@ -73,42 +99,44 @@ const Preview = ({
               </CardActions>
             </Card>
           </Grid>
-          <Grid item xs={6} className={classes.flexGrid}>
-            <Card variant="outlined" className={classes.flexCard}>
-              <CardContent className={classes.flexCardContent}>
-                <Typography
-                  className={classes.title}
-                  color="textSecondary"
-                  gutterBottom
-                >
-                  Experimental Data
-                </Typography>
-                <div>
-                  {Object.keys(experimentalValues).map((value) => (
-                    <Typography>
-                      <Typography component="span">{`${FIELDS.extraction[value].label}: `}</Typography>
-                      <Typography
-                        variant="body1"
-                        color="textSecondary"
-                        component="span"
-                      >
-                        {experimentalValues[value]}
+          {hasPhysicalData && (
+            <Grid item xs={6} className={classes.flexGrid}>
+              <Card variant="outlined" className={classes.flexCard}>
+                <CardContent className={classes.flexCardContent}>
+                  <Typography
+                    className={classes.title}
+                    color="textSecondary"
+                    gutterBottom
+                  >
+                    Physical Data
+                  </Typography>
+                  <div>
+                    {Object.keys(experimentalValues).map((value) => (
+                      <Typography>
+                        <Typography component="span">{`${FIELDS.extraction[value].label}: `}</Typography>
+                        <Typography
+                          variant="body1"
+                          color="textSecondary"
+                          component="span"
+                        >
+                          {experimentalValues[value]}
+                        </Typography>
                       </Typography>
-                    </Typography>
-                  ))}
-                </div>
-              </CardContent>
-              <CardActions className={classes.cardActions}>
-                <Button
-                  size="small"
-                  onClick={() => history.push(experimentalURL())}
-                >
-                  Edit
-                </Button>
-              </CardActions>
-            </Card>
-          </Grid>
-          <Grid item xs={6} className={classes.flexGrid}>
+                    ))}
+                  </div>
+                </CardContent>
+                <CardActions className={classes.cardActions}>
+                  <Button
+                    size="small"
+                    onClick={() => history.push(experimentalURL())}
+                  >
+                    Edit
+                  </Button>
+                </CardActions>
+              </Card>
+            </Grid>
+          )}
+          <Grid item xs={hasPhysicalData ? 6 : 12} className={classes.flexGrid}>
             <Card variant="outlined" className={classes.flexCard}>
               <CardContent className={classes.flexCardContent}>
                 <Typography
@@ -119,10 +147,12 @@ const Preview = ({
                   Extraction Data
                 </Typography>
                 <div>
-                  {points.map((point) => (
+                  {points.map((point, index) => (
                     <Grid container>
                       <Grid item xs={6}>
-                        <Typography component="span">{"X:        "}</Typography>
+                        <Typography component="span">
+                          t<small>({index})</small>:{"        "}
+                        </Typography>
                         <Typography
                           variant="body1"
                           color="textSecondary"
@@ -132,7 +162,9 @@ const Preview = ({
                         </Typography>
                       </Grid>
                       <Grid item xs={6}>
-                        <Typography component="span">{"Y:        "}</Typography>
+                        <Typography component="span">
+                          m<small>({index})</small>:{"        "}
+                        </Typography>
                         <Typography
                           variant="body1"
                           color="textSecondary"

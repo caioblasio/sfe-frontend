@@ -2,6 +2,7 @@ import {
   CHANGE_VALUES,
   ADD_MODEL,
   CHANGE_CALCULATION_VALUES,
+  RESET_VALUES,
 } from "./constants";
 
 function changeValues(data = {}) {
@@ -25,8 +26,15 @@ function changeCalculationValues(data = {}) {
   };
 }
 
+function resetValues() {
+  return {
+    type: RESET_VALUES,
+  };
+}
+
 export default {
   changeValues,
   addModel,
   changeCalculationValues,
+  resetValues,
 };

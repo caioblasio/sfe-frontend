@@ -28,21 +28,17 @@ const Navigation = () => {
   let location = useLocation();
 
   return (
-    <TransitionGroup>
-      <CSSTransition key={location.key} classNames="fade" timeout={300}>
-        <Switch location={location}>
-          <Route path={welcomeURL()} component={Home} />
-          <Route path={modelsURL()} component={Models} />
-          <Route path={experimentalURL()} component={Experimental} />
-          <Route path={extractionURL()} component={Extraction} />
-          <Route path={calculationURL()} component={Calculation} />
-          <Route path={previewURL()} component={Preview} />
-          <Route path={resultsURL()} component={Results} />
-          <Route path={aboutURL()} component={About} />
-          <Route path={backgroundURL()} component={Background} />
-        </Switch>
-      </CSSTransition>
-    </TransitionGroup>
+    <Switch location={location}>
+      <Route path={welcomeURL()} component={Home} />
+      <Route path={modelsURL()} component={Models} />
+      <Route path={experimentalURL()} component={Experimental} />
+      <Route path={extractionURL()} component={Extraction} />
+      <Route path={calculationURL()} component={Calculation} />
+      <Route path={previewURL()} component={Preview} />
+      <Route path={resultsURL()} component={Results} />
+      <Route path={aboutURL()} component={About} />
+      <Route path={backgroundURL()} component={Background} />
+    </Switch>
   );
 };
 
