@@ -16,10 +16,10 @@ const Home = () => {
       <Grid container spacing={5} className={classes.root} component="section">
         <Grid item xs={12}>
           <Typography variant="h4" component="h1">
-            Welcome to the SFE Modelling Tool
+            Welcome to the SFE & PLE Modelling Tool
           </Typography>
           <Typography variant="h6" color="textSecondary" component="h2">
-            The easiest tool to make calculations for SFE
+            The easiest tool to make calculations for SFE and PLE
           </Typography>
         </Grid>
         <Grid item xs={12}>

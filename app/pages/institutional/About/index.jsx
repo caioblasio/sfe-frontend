@@ -2,7 +2,7 @@ import React from "react";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import useStyles from "./styles";
-
+import { contactEmail } from "configs/constants";
 import InstitutionalPage from "pages/institutional";
 
 const About = () => {
@@ -13,14 +13,14 @@ const About = () => {
       <Grid container spacing={5}>
         <Grid item xs={12}>
           <Typography variant="h4" component="h1">
-            LAPEA SFE Online Data Modelling Tool
+            LAPEA SFE & PLE Online Data Modelling Tool
           </Typography>
           <Typography
             className={classes.subtitle}
             variant="subtitle1"
             component="h2"
           >
-            Version 1. Released on Aug 29th, 2019
+            Version beta 0.9. Released on Aug 24th, 2020
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -48,9 +48,8 @@ const About = () => {
               <Typography>
                 In the meanwhile, should you have any queries, please feel
                 welcome to contact us through{" "}
-                <a href="mailto:netofea10@gmail.com">netofea10@gmail.com</a>. We
-                hope you enjoy our software and wish you get outstanding
-                results!
+                <a href={`mailto:${contactEmail}`}>{contactEmail}</a>. We hope
+                you enjoy our software and wish you get outstanding results!
               </Typography>
             </Grid>
           </Grid>

@@ -9,6 +9,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Navigation from "routes";
 import Topbar from "components/Topbar";
+import Footer from "components/Footer";
 
 const theme = createMuiTheme({
   palette: {
@@ -23,17 +24,20 @@ const Main = () => {
     <main className="main">
       <ThemeProvider theme={theme}>
         <CssBaseline />
-        <Router>
-          <Topbar />
-          <Switch>
-            <Route exact path="/">
-              <Redirect to="/welcome" />
-            </Route>
-            <Route path="*">
-              <Navigation />
-            </Route>
-          </Switch>
-        </Router>
+        <div style={{ minHeight: "100vh" }}>
+          <Router>
+            <Topbar />
+            <Switch>
+              <Route exact path="/">
+                <Redirect to="/welcome" />
+              </Route>
+              <Route path="*">
+                <Navigation />
+              </Route>
+            </Switch>
+          </Router>
+        </div>
+        <Footer />
       </ThemeProvider>
     </main>
   );
