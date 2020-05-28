@@ -18,7 +18,7 @@ export function* fetchResults({ payload }) {
         function* onSuccess(_headers, data) {
           yield put(Actions.fetchResultsSuccess(model, data));
         },
-        null,
+        undefined,
         model
       )
     )

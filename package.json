@@ -8,11 +8,13 @@
     "clean:build": "npx rimraf ./dist",
     "prebuild": "npm run clean",
     "build": "npx webpack --config ./internals/webpack/webpack.build.js",
-    "build:prod": "npx cross-env NODE_ENV=prod npm run build",
+    "build:prod": "npx cross-env NODE_ENV=production npm run build",
     "build:dev": "npx cross-env NODE_ENV=dev npm run build -- --colors --progress",
     "start": "npx cross-env NODE_ENV=development webpack-dev-server --config ./internals/webpack/webpack.serve.js --colors --progress",
     "test": "npx cross-env NODE_ENV=test npx jest --coverage --verbose",
-    "test:watch": "npx cross-env NODE_ENV=test npx jest --watchAll"
+    "test:watch": "npx cross-env NODE_ENV=test npx jest --watchAll",
+    "predeploy": "npm run build:prod",
+    "deploy": "aws s3 sync dist/ s3://sfenetofea --acl public-read"
   },
   "keywords": [],
   "author": "Caio De Blasio",
@@ -41,6 +43,7 @@
   "dependencies": {
     "@material-ui/core": "^4.9.5",
     "@material-ui/icons": "^4.9.1",
+    "axios": "^0.19.2",
     "classnames": "^2.2.6",
     "immutable": "^4.0.0-rc.12",
     "prop-types": "^15.7.2",

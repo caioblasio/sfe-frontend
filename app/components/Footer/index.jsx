@@ -52,17 +52,17 @@ const Footer = () => {
           <Grid item sm={12}>
             <Divider />
           </Grid>
-          <Grid item sm={6}>
+          <Grid item sm={12}>
             ® 2020 Antonio Carlos da Silva Neto.
           </Grid>
-          <Grid item sm={6}>
+          {/* <Grid item sm={6}>
             <Typography variant="caption" component="span">
               Developed by Caio De Blasio
             </Typography>
             <IconButton href={externalGithubURL()} target="_blank">
               <GitHubIcon />
             </IconButton>
-          </Grid>
+          </Grid> */}
         </Grid>
       </Container>
     </footer>

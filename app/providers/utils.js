@@ -19,18 +19,19 @@ function* callApi(
       headers: reqHeaders,
     };
 
-    if (body) {
-      requestObj = { ...requestObj, body };
-    }
+    // if (body) {
+    //   requestObj = { ...requestObj, body };
+    // }
 
     yield put(StatusActions.set(statuId, "PENDING"));
 
-    response = yield request(url, requestObj);
+    response = yield request(url, requestObj, body);
 
     if (onSuccess) {
       yield onSuccess(response);
     }
   } catch (err) {
+    console.log(err);
     yield put(StatusActions.set(statuId, "ERROR"));
     if (!(err instanceof ResponseError)) {
       console.error(err.message);
@@ -57,13 +58,15 @@ export function* callApiData(
     url,
     method,
     { ...reqHeaders, "Content-Type": "application/json" },
-    JSON.stringify(body),
+    //JSON.stringify(body),
+    body,
     function* handleSuccess(response) {
       const { headers } = response;
       if (onSuccess) {
-        const data = yield response
-          .text()
-          .then((text) => (text ? JSON.parse(text) : undefined));
+        // const data = yield response
+        //   .text()
+        //   .then((text) => (text ? JSON.parse(text) : undefined));
+        const { data } = response;
 
         yield onSuccess(headers, data);
       }

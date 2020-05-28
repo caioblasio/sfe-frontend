@@ -1,3 +1,4 @@
+import axios from "axios";
 export class ResponseError extends Error {
   constructor(response) {
     super(`${response.status} - ${response.statusText}`);
@@ -5,11 +6,10 @@ export class ResponseError extends Error {
   }
 }
 
-export default async (url, options = {}) => {
-  console.log("options", options);
-  const response = await fetch(url, options);
+export default async (url, options = {}, data = {}) => {
+  const response = await axios({ ...options, url, data });
 
-  if (!response.ok) {
+  if (response.status !== 200) {
     throw new ResponseError(response);
   }
 
