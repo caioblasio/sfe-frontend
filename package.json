@@ -14,7 +14,7 @@
     "test": "npx cross-env NODE_ENV=test npx jest --coverage --verbose",
     "test:watch": "npx cross-env NODE_ENV=test npx jest --watchAll",
     "predeploy": "npm run build:prod",
-    "deploy": "aws s3 sync dist/ s3://sfenetofea --acl public-read"
+    "deploy": "aws s3 sync dist/ s3://www.lapeamathmodels.xyz --acl public-read"
   },
   "keywords": [],
   "author": "Caio De Blasio",

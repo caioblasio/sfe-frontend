@@ -21,15 +21,15 @@ const ResultItem = ({ model, values, data }) => {
     <Table>
       <TableHead>
         <TableRow>
-          {Object.keys(MODELS[model].result).map((key) => (
-            <TableCell align="right">{`${MODELS[model].result[key]} (${key})`}</TableCell>
+          {Object.keys(values).map((key) => (
+            <TableCell align="right">{key}</TableCell>
           ))}
         </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>
-          {Object.keys(MODELS[model].result).map((key) => (
-            <TableCell align="right">{values[key]}</TableCell>
+          {Object.values(values).map((values) => (
+            <TableCell align="right">{values}</TableCell>
           ))}
         </TableRow>
       </TableBody>
@@ -43,27 +43,6 @@ const ResultItem = ({ model, values, data }) => {
           {MODELS[model].name}
         </Typography>
         <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <TableContainer
-              component={Paper}
-              className={classes.tableContainer}
-            >
-              <Table aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="right">Fmin</TableCell>
-                    <TableCell align="right">tCER</TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  <TableRow>
-                    <TableCell align="right">{values["Fmin"]}</TableCell>
-                    <TableCell align="right">{values["tCER"]}</TableCell>
-                  </TableRow>
-                </TableBody>
-              </Table>
-            </TableContainer>
-          </Grid>
           <Grid item xs={12}>
             <TableContainer
               component={Paper}
