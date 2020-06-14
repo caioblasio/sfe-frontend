@@ -86,17 +86,20 @@
       "maxfun": {
         "id": 1,
         "name": "maxfun",
-        "label": "Max number of iterations"
+        "label": "Max number of iterations",
+        "defaultValue": "5000"
       },
       "nh": {
         "id": 2,
         "name": "nh",
-        "label": "Number of space iteration steps"
+        "label": "Number of space iteration steps",
+        "defaultValue": "50"
       },
       "nt": {
         "id": 3,
         "name": "nt",
-        "label": "Number of time iteration steps"
+        "label": "Number of time iteration steps",
+        "defaultValue": "2000"
       }
     }
   }

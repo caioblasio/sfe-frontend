@@ -65,7 +65,11 @@ const Calculation = ({
                       })}
                       label={FIELDS.calculation[field].label}
                       variant="outlined"
-                      defaultValue={calculationValues[field]}
+                      defaultValue={
+                        calculationValues[field]
+                          ? calculationValues[field]
+                          : FIELDS.calculation[field].defaultValue
+                      }
                       helperText={errors[field]?.message}
                     />
                   </Grid>
