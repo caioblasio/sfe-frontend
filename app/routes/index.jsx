@@ -10,6 +10,7 @@ import Preview from "pages/Preview";
 import Results from "pages/Results";
 import About from "pages/institutional/About";
 import Background from "pages/institutional/Background";
+import Instructions from "pages/institutional/Instructions";
 
 import {
   welcomeURL,
@@ -38,6 +39,7 @@ const Navigation = () => {
       <Route path={resultsURL()} component={Results} />
       <Route path={aboutURL()} component={About} />
       <Route path={backgroundURL()} component={Background} />
+      <Route path={instructionsURL()} component={Instructions} />
     </Switch>
   );
 };
