@@ -15,11 +15,7 @@ export const initialState = fromJS({
     ep: "",
     dfluid: "",
     qq: "",
-    ttcer: "",
     solubility: "",
-    viscosity: "",
-    dabf: "",
-    bb: "",
     eb: "",
     hc: "",
     dc: "",
@@ -44,11 +40,7 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["values", "ep"], payload.ep)
         .setIn(["values", "dfluid"], payload.dfluid)
         .setIn(["values", "qq"], payload.qq)
-        .setIn(["values", "ttcer"], payload.ttcer)
         .setIn(["values", "solubility"], payload.solubility)
-        .setIn(["values", "viscosity"], payload.viscosity)
-        .setIn(["values", "dabf"], payload.dabf)
-        .setIn(["values", "bb"], payload.bb)
         .setIn(["values", "eb"], payload.eb)
         .setIn(["values", "hc"], payload.hc)
         .setIn(["values", "dc"], payload.dc)
@@ -72,11 +64,7 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["values", "ep"], "")
         .setIn(["values", "dfluid"], "")
         .setIn(["values", "qq"], "")
-        .setIn(["values", "ttcer"], "")
         .setIn(["values", "solubility"], "")
-        .setIn(["values", "viscosity"], "")
-        .setIn(["values", "dabf"], "")
-        .setIn(["values", "bb"], "")
         .setIn(["values", "eb"], "")
         .setIn(["values", "hc"], "")
         .setIn(["values", "dc"], "")

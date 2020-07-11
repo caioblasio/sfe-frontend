@@ -36,48 +36,28 @@
         "name": "qq",
         "label": "Fluid Flow Rate (mL/min)"
       },
-      "ttcer": {
-        "id": 8,
-        "name": "ttcer",
-        "label": "CER"
-      },
       "solubility": {
-        "id": 9,
+        "id": 8,
         "name": "solubility",
         "label": "Solubility (%)"
       },
-      "viscosity": {
-        "id": 10,
-        "name": "viscosity",
-        "label": "Viscosity (cP)"
-      },
-      "dabf": {
-        "id": 11,
-        "name": "dabf",
-        "label": "Diffusivity (cm2/s)"
-      },
-      "bb": {
-        "id": 12,
-        "name": "bb",
-        "label": "B (dimensionless)"
-      },
       "eb": {
-        "id": 13,
+        "id": 9,
         "name": "eb",
         "label": "Bulk Porosity (%)"
       },
       "hc": {
-        "id": 14,
+        "id": 10,
         "name": "hc",
         "label": "Column Height (cm)"
       },
       "dc": {
-        "id": 15,
+        "id": 11,
         "name": "dc",
         "label": "Column Diameter (cm)"
       },
       "temperature": {
-        "id": 16,
+        "id": 12,
         "name": "temperature",
         "label": "Temperature (K)"
       }
