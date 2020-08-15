@@ -1,6 +1,6 @@
 const API_ENVIRONMENTS_URL = {
   development: "http://localhost:3002",
-  production: "http://ec2-3-15-186-246.us-east-2.compute.amazonaws.com",
+  production: "http://ec2-3-129-70-128.us-east-2.compute.amazonaws.com",
 };
 
 export const SCOPE = "providers/Results";

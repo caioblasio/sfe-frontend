@@ -12,6 +12,9 @@ const useStyles = makeStyles((theme) => ({
     display: "flex",
     justifyContent: "space-around",
   },
+  buttonFile: {
+    margin: theme.spacing(1),
+  },
 }));
 
 export default useStyles;

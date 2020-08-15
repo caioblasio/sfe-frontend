@@ -25,14 +25,6 @@ const Experimental = ({
   const classes = useStyles();
   const history = useHistory();
 
-  useEffect(() => {
-    if (!!!selectedModels.length) {
-      history.push(modelsURL());
-    }
-  }, []);
-
-  const { register, errors, handleSubmit } = useForm();
-
   const fields = (() => {
     let requiredFields = [];
     selectedModels.forEach((selectedModel) => {
@@ -40,6 +32,14 @@ const Experimental = ({
     });
     return [...new Set(requiredFields)];
   })();
+
+  useEffect(() => {
+    if (!!!selectedModels.length) {
+      history.push(modelsURL());
+    }
+  }, []);
+
+  const { register, errors, handleSubmit } = useForm();
 
   const content = !!fields.length ? (
     fields.map((field) => (

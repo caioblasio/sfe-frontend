@@ -2,7 +2,7 @@ import { fromJS } from "immutable";
 import { ADD_POINTS } from "./constants";
 
 export const initialState = fromJS({
-  points: [],
+  points: [{}],
 });
 
 const reducer = (state = initialState, { type, payload }) => {
