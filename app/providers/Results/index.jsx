@@ -11,6 +11,7 @@ import {
 import ResultItem from "components/ResultItem";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
+import ResultChart from "components/ResultChart";
 
 const Provider = ({
   calculationValues,
@@ -35,12 +36,41 @@ const Provider = ({
     fetchResults(selectedModels, data);
   }, [selectedModels, experimentalValues, calculationValues]);
 
+  const getChartData = () => {
+    const experimentalChartData = results[Object.keys(results)[0]].data
+      .map(({ time, experimental }) => ({
+        time: Number(time),
+        experimental: Number(experimental),
+      }))
+      .map((data) => Object.values(data));
+
+    let result = [
+      { label: "Experimental", data: experimentalChartData },
+      ...Object.keys(results).map((key) => ({
+        label: key,
+        data: results[key].data
+          .map(({ time, calculated }) => ({
+            time: Number(time),
+            calculated: Number(calculated),
+          }))
+          .map((data) => Object.values(data)),
+      })),
+    ];
+
+    return result;
+  };
+
   return (
     <Grid container spacing={4}>
       <Grid item xs={12}>
         <Typography variant="h5" component="h1">
           Results of your simulation
         </Typography>
+      </Grid>
+      <Grid item xs={12}>
+        {Object.keys(results).length ? (
+          <ResultChart data={getChartData()} />
+        ) : null}
       </Grid>
       {Object.keys(results).map((model) => (
         <Grid item xs={12}>
