@@ -6,6 +6,7 @@ import {
   ExtractionDataSelectors,
   ResultsActions,
   ResultsSelectors,
+  StatusSelectors,
 } from "providers";
 //import useStyles from "./styles";
 import ResultItem from "components/ResultItem";
@@ -20,6 +21,7 @@ const Provider = ({
   points,
   fetchResults,
   results,
+  isLoading,
 }) => {
   //const classes = useStyles();
 
@@ -36,29 +38,50 @@ const Provider = ({
     fetchResults(selectedModels, data);
   }, [selectedModels, experimentalValues, calculationValues]);
 
+  // const getChartData = () => {
+  //   const experimentalChartData = results[Object.keys(results)[0]].data
+  //     .map(({ time, experimental }) => ({
+  //       time: Number(time),
+  //       experimental: Number(experimental),
+  //     }))
+  //     .map((data) => Object.values(data));
+
+  //   let result = [
+  //     { label: "Experimental", data: experimentalChartData },
+  //     ...Object.keys(results).map((key) => ({
+  //       label: key,
+  //       data: results[key].data
+  //         .map(({ time, calculated }) => ({
+  //           time: Number(time),
+  //           calculated: Number(calculated),
+  //         }))
+  //         .map((data) => Object.values(data)),
+  //     })),
+  //   ];
+
+  //   return result;
+  // };
+
   const getChartData = () => {
-    const experimentalChartData = results[Object.keys(results)[0]].data
-      .map(({ time, experimental }) => ({
-        time: Number(time),
-        experimental: Number(experimental),
-      }))
-      .map((data) => Object.values(data));
+    let data = [];
+    Object.keys(results).forEach((key) => {
+      results[key].data
+        .map(({ time, experimental, calculated }) => ({
+          time: Number(time),
+          experimental: Number(experimental),
+          [`${key}`]: Number(calculated),
+        }))
+        .forEach((set, index) => {
+          data[index] = { ...data[index], ...set };
+        });
+    });
 
-    let result = [
-      { label: "Experimental", data: experimentalChartData },
-      ...Object.keys(results).map((key) => ({
-        label: key,
-        data: results[key].data
-          .map(({ time, calculated }) => ({
-            time: Number(time),
-            calculated: Number(calculated),
-          }))
-          .map((data) => Object.values(data)),
-      })),
-    ];
-
-    return result;
+    return data;
   };
+
+  if (isLoading) {
+    return null;
+  }
 
   return (
     <Grid container spacing={4}>
@@ -68,9 +91,7 @@ const Provider = ({
         </Typography>
       </Grid>
       <Grid item xs={12}>
-        {Object.keys(results).length ? (
-          <ResultChart data={getChartData()} />
-        ) : null}
+        <ResultChart data={getChartData()} />
       </Grid>
       {Object.keys(results).map((model) => (
         <Grid item xs={12}>
@@ -91,6 +112,7 @@ const mapStateToProps = createStructuredSelector({
   selectedModels: ExperimentalDataSelectors.getModels(),
   points: ExtractionDataSelectors.getPoints(),
   results: ResultsSelectors.getResults(),
+  isLoading: StatusSelectors.isLoading(),
 });
 
 const mapDispatchToProps = (dispatch) => ({
