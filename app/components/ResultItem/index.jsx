@@ -59,12 +59,12 @@ const ResultItem = ({ model, values, data }) => {
               <Table aria-label="simple table">
                 <TableHead>
                   <TableRow>
-                    <TableCell align="right">Extraction Time</TableCell>
+                    <TableCell align="right">Extraction Time (s)</TableCell>
                     <TableCell align="right">
-                      Extraction Mass (g) - Experimental
+                      Extraction Mass (kg) - Experimental
                     </TableCell>
                     <TableCell align="right">
-                      Extraction Mass (g) - Calculated
+                      Extraction Mass (kg) - Calculated
                     </TableCell>
                   </TableRow>
                 </TableHead>
