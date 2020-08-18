@@ -8,11 +8,12 @@ import {
   ResultsSelectors,
   StatusSelectors,
 } from "providers";
-//import useStyles from "./styles";
 import ResultItem from "components/ResultItem";
 import Grid from "@material-ui/core/Grid";
 import Typography from "@material-ui/core/Typography";
 import ResultChart from "components/ResultChart";
+
+import useStyles from "./styles";
 
 const Provider = ({
   calculationValues,
@@ -23,7 +24,7 @@ const Provider = ({
   results,
   isLoading,
 }) => {
-  //const classes = useStyles();
+  const classes = useStyles();
 
   useEffect(() => {
     const data = {
@@ -37,30 +38,6 @@ const Provider = ({
 
     fetchResults(selectedModels, data);
   }, [selectedModels, experimentalValues, calculationValues]);
-
-  // const getChartData = () => {
-  //   const experimentalChartData = results[Object.keys(results)[0]].data
-  //     .map(({ time, experimental }) => ({
-  //       time: Number(time),
-  //       experimental: Number(experimental),
-  //     }))
-  //     .map((data) => Object.values(data));
-
-  //   let result = [
-  //     { label: "Experimental", data: experimentalChartData },
-  //     ...Object.keys(results).map((key) => ({
-  //       label: key,
-  //       data: results[key].data
-  //         .map(({ time, calculated }) => ({
-  //           time: Number(time),
-  //           calculated: Number(calculated),
-  //         }))
-  //         .map((data) => Object.values(data)),
-  //     })),
-  //   ];
-
-  //   return result;
-  // };
 
   const getChartData = () => {
     let data = [];
@@ -84,7 +61,7 @@ const Provider = ({
   }
 
   return (
-    <Grid container spacing={4}>
+    <Grid container spacing={4} className={classes.root}>
       <Grid item xs={12}>
         <Typography variant="h5" component="h1">
           Results of your simulation

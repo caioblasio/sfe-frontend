@@ -5,10 +5,11 @@ import {
   ValueAxis,
   Chart,
   LineSeries,
+  ScatterSeries,
   Legend,
   Title,
 } from "@devexpress/dx-react-chart-material-ui";
-import { Stack } from "@devexpress/dx-react-chart";
+import {} from "@devexpress/dx-react-chart";
 
 // const data = [
 //   { time: 60, experimental: 0.54, sovova: 0.43, reverchon: 0.965 },
@@ -26,10 +27,19 @@ const ResultChart = ({ data }) => {
       <Chart data={data}>
         <ArgumentAxis />
         <ValueAxis />
+        <ScatterSeries
+          valueField="experimental"
+          argumentField="time"
+          name="Experimental Data"
+        />
         {Object.keys(data[0])
-          .filter((key) => key !== "time")
+          .filter((key) => key !== "time" && key !== "experimental")
           .map((key) => (
-            <LineSeries valueField={key} argumentField="time" name={key} />
+            <LineSeries
+              valueField={key}
+              argumentField="time"
+              name={MODELS[key].name}
+            />
           ))}
         <Legend />
         <Title text="Results Chart" />
