@@ -131,10 +131,11 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
         </Grid>
         <Grid item xs={12}>
           <Typography variant="body1" color="textSecondary" component="h2">
-            You can upload a CSV file. The coordinates must be written separated
-            by comma (,). New coordinate pairs must be in a new line. Decimal
-            numbers must use a . as a decimal separator. You can also write the
-            data directly in the table without uploading a file.
+            You can either enter your experimental data manually or using a CSV
+            file. The dataset must be: (1) written separated by comma
+            (time,mass); (2) each experimental pair must be entered in a
+            separate line; (3) decimal numbers must use a point (.) as decimal
+            separator
           </Typography>
         </Grid>
         <Grid item xs={12}>
@@ -146,7 +147,7 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
               component="span"
               gutterBottom
             >
-              0.056,1.654
+              0,0
             </Typography>
             <Typography
               variant="caption"
@@ -154,7 +155,7 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
               component="span"
               gutterBottom
             >
-              0.0456,2.5454
+              5,0.015
             </Typography>
             <Typography
               variant="caption"
@@ -162,7 +163,7 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
               component="span"
               gutterBottom
             >
-              1.768,1.465
+              10,0.018
             </Typography>
           </Typography>
         </Grid>

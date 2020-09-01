@@ -13,6 +13,7 @@ import TableHead from "@material-ui/core/TableHead";
 import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import useStyles from "./styles";
+import { convertToExponential } from "utils/formatter";
 
 const ResultItem = ({ model, values, data }) => {
   const classes = useStyles();
@@ -28,8 +29,8 @@ const ResultItem = ({ model, values, data }) => {
       </TableHead>
       <TableBody>
         <TableRow>
-          {Object.values(values).map((values) => (
-            <TableCell align="right">{values}</TableCell>
+          {Object.values(values).map((value) => (
+            <TableCell align="right">{convertToExponential(value)}</TableCell>
           ))}
         </TableRow>
       </TableBody>
@@ -72,8 +73,12 @@ const ResultItem = ({ model, values, data }) => {
                   {data.map((row, index) => (
                     <TableRow key={index}>
                       <TableCell align="right">{row.time}</TableCell>
-                      <TableCell align="right">{row.experimental}</TableCell>
-                      <TableCell align="right">{row.calculated}</TableCell>
+                      <TableCell align="right">
+                        {convertToExponential(row.experimental)}
+                      </TableCell>
+                      <TableCell align="right">
+                        {convertToExponential(row.calculated)}
+                      </TableCell>
                     </TableRow>
                   ))}
                 </TableBody>

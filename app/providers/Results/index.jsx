@@ -15,6 +15,8 @@ import ResultChart from "components/ResultChart";
 
 import useStyles from "./styles";
 
+import { convertToExponential } from "utils/formatter";
+
 const Provider = ({
   calculationValues,
   selectedModels,
@@ -45,8 +47,8 @@ const Provider = ({
       results[key].data
         .map(({ time, experimental, calculated }) => ({
           time: Number(time),
-          experimental: Number(experimental),
-          [`${key}`]: Number(calculated),
+          experimental: convertToExponential(experimental),
+          [`${key}`]: convertToExponential(calculated),
         }))
         .forEach((set, index) => {
           data[index] = { ...data[index], ...set };

@@ -9,7 +9,6 @@ import {
   Legend,
   Title,
 } from "@devexpress/dx-react-chart-material-ui";
-import {} from "@devexpress/dx-react-chart";
 
 // const data = [
 //   { time: 60, experimental: 0.54, sovova: 0.43, reverchon: 0.965 },
@@ -42,7 +41,7 @@ const ResultChart = ({ data }) => {
             />
           ))}
         <Legend />
-        <Title text="Results Chart" />
+        <Title text="Extraction Curve (kg per s)" />
       </Chart>
     </Paper>
   );
