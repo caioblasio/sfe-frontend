@@ -10,14 +10,12 @@
         "dsolid",
         "dpa",
         "msolid",
-        "ep",
         "dfluid",
         "qq",
         "solubility",
         "eb",
         "hc",
-        "dc",
-        "temperature"
+        "dc"
       ],
       "chartColor": "#00bcd4"
     },

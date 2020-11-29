@@ -91,31 +91,35 @@ const Experimental = ({
         <Grid item xs={12}>
           <form onSubmit={handleSubmit(onSubmit)}>
             <Container maxWidth="md">
-              <Grid container spacing={6}>
-                {content}
-                <Grid item xs={6}>
-                  <Button
-                    size="large"
-                    variant="contained"
-                    color="default"
-                    startIcon={<NavigateBeforeIcon />}
-                    onClick={() => {
-                      history.goBack();
-                    }}
-                  >
-                    Back
-                  </Button>
+              <Grid container spacing={4}>
+                <Grid container item spacing={6}>
+                  {content}
                 </Grid>
-                <Grid item xs={6}>
-                  <Button
-                    size="large"
-                    variant="contained"
-                    color="primary"
-                    endIcon={<NavigateNextIcon />}
-                    type="submit"
-                  >
-                    Next
-                  </Button>
+                <Grid container item spacing={6}>
+                  <Grid item xs={6}>
+                    <Button
+                      size="large"
+                      variant="contained"
+                      color="default"
+                      startIcon={<NavigateBeforeIcon />}
+                      onClick={() => {
+                        history.goBack();
+                      }}
+                    >
+                      Back
+                    </Button>
+                  </Grid>
+                  <Grid item xs={6}>
+                    <Button
+                      size="large"
+                      variant="contained"
+                      color="primary"
+                      endIcon={<NavigateNextIcon />}
+                      type="submit"
+                    >
+                      Next
+                    </Button>
+                  </Grid>
                 </Grid>
               </Grid>
             </Container>

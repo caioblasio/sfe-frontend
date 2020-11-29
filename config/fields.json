@@ -4,7 +4,7 @@
       "aa": {
         "id": 1,
         "name": "aa",
-        "label": "Initial Concentration (%)"
+        "label": "Solute initial concentration in solid (%)"
       },
       "dsolid": {
         "id": 2,
@@ -21,20 +21,15 @@
         "name": "msolid",
         "label": "Solid Mass (g)"
       },
-      "ep": {
-        "id": 5,
-        "name": "ep",
-        "label": "Particle Porosity (%)"
-      },
       "dfluid": {
         "id": 6,
         "name": "dfluid",
-        "label": "Fluid Density (g/cm3)"
+        "label": "Solvent Density (g/cm3)"
       },
       "qq": {
         "id": 7,
         "name": "qq",
-        "label": "Fluid Flow Rate (mL/min)"
+        "label": "Solvent Flow Rate (g/min)"
       },
       "solubility": {
         "id": 8,
@@ -55,11 +50,6 @@
         "id": 11,
         "name": "dc",
         "label": "Column Diameter (cm)"
-      },
-      "temperature": {
-        "id": 12,
-        "name": "temperature",
-        "label": "Temperature (K)"
       }
     },
     "calculation": {

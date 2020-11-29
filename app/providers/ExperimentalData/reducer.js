@@ -12,14 +12,12 @@ export const initialState = fromJS({
     dsolid: "",
     dpa: "",
     msolid: "",
-    ep: "",
     dfluid: "",
     qq: "",
     solubility: "",
     eb: "",
     hc: "",
     dc: "",
-    temperature: "",
   },
   models: [],
   calculation: {
@@ -37,14 +35,12 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["values", "dsolid"], payload.dsolid)
         .setIn(["values", "dpa"], payload.dpa)
         .setIn(["values", "msolid"], payload.msolid)
-        .setIn(["values", "ep"], payload.ep)
         .setIn(["values", "dfluid"], payload.dfluid)
         .setIn(["values", "qq"], payload.qq)
         .setIn(["values", "solubility"], payload.solubility)
         .setIn(["values", "eb"], payload.eb)
         .setIn(["values", "hc"], payload.hc)
-        .setIn(["values", "dc"], payload.dc)
-        .setIn(["values", "temperature"], payload.temperature);
+        .setIn(["values", "dc"], payload.dc);
 
     case ADD_MODEL:
       return state.set("models", fromJS(payload));
@@ -61,14 +57,12 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["values", "dsolid"], "")
         .setIn(["values", "dpa"], "")
         .setIn(["values", "msolid"], "")
-        .setIn(["values", "ep"], "")
         .setIn(["values", "dfluid"], "")
         .setIn(["values", "qq"], "")
         .setIn(["values", "solubility"], "")
         .setIn(["values", "eb"], "")
         .setIn(["values", "hc"], "")
-        .setIn(["values", "dc"], "")
-        .setIn(["values", "temperature"], "");
+        .setIn(["values", "dc"], "");
 
     default:
       return state;

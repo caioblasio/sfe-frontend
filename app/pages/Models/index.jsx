@@ -14,7 +14,7 @@ import Button from "@material-ui/core/Button";
 import Page from "pages";
 import Stepper from "components/Stepper";
 import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
-import { experimentalURL } from "configs/urls";
+import { experimentalURL, extractionURL } from "configs/urls";
 import useStyles from "./styles";
 
 const Models = ({ selectedModels, addModels }) => {
@@ -55,7 +55,18 @@ const Models = ({ selectedModels, addModels }) => {
       }
     });
     addModels(modelsChosenKeys);
-    history.push(experimentalURL());
+    const fields = (() => {
+      let requiredFields = [];
+      modelsChosenKeys.forEach((selectedModel) => {
+        requiredFields = [...requiredFields, ...MODELS[selectedModel].fields];
+      });
+      return [...new Set(requiredFields)];
+    })();
+    if (fields.length) {
+      history.push(experimentalURL());
+    } else {
+      history.push(extractionURL());
+    }
   };
 
   return (

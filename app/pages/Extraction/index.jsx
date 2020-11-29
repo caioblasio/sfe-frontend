@@ -204,10 +204,10 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
                           <TableHead>
                             <TableRow>
                               <TableCell align="center">
-                                Extraction Time (min)
+                                Extraction Time (s)
                               </TableCell>
                               <TableCell align="center">
-                                Extracted Mass (g)
+                                Extracted Mass (kg)
                               </TableCell>
                             </TableRow>
                           </TableHead>

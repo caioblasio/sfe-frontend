@@ -21,9 +21,12 @@ import nguyenEq1 from "assets/background-page-nguyen-1.png";
 import veljkovicEq1 from "assets/background-page-veljkovic-1.png";
 import pkmEq1 from "assets/background-page-pkm-1.png";
 
+import { useQuery } from "hooks";
+
 const Background = () => {
   const classes = useStyles();
-  const [value, setValue] = useState(0);
+  const initialTab = useQuery().get("tab");
+  const [value, setValue] = useState(initialTab ? Number(initialTab) : 0);
 
   return (
     <InstitutionalPage>

@@ -1,4 +1,5 @@
 import React from "react";
+import { useHistory } from "react-router-dom";
 import Typography from "@material-ui/core/Typography";
 import Grid from "@material-ui/core/Grid";
 import Button from "@material-ui/core/Button";
@@ -14,9 +15,11 @@ import TableRow from "@material-ui/core/TableRow";
 import Paper from "@material-ui/core/Paper";
 import useStyles from "./styles";
 import { convertToExponential } from "utils/formatter";
+import { backgroundURL } from "configs/urls";
 
 const ResultItem = ({ model, values, data }) => {
   const classes = useStyles();
+  const history = useHistory();
 
   const createParamsTable = () => (
     <Table>
@@ -40,9 +43,21 @@ const ResultItem = ({ model, values, data }) => {
   return (
     <Card variant="outlined">
       <CardContent>
-        <Typography variant="h5" component="h2" gutterBottom>
-          {MODELS[model].name}
-        </Typography>
+        <CardActions className={classes.cardActions}>
+          <Typography variant="h5" component="h2" gutterBottom>
+            {MODELS[model].name}
+          </Typography>
+          <Button
+            className={classes.cardActionsButton}
+            color="default"
+            onClick={() => {
+              history.push(`${backgroundURL()}?tab=1`);
+            }}
+          >
+            For detailed information regarding the model parameters ki, please
+            click here
+          </Button>
+        </CardActions>
         <Grid container spacing={4}>
           <Grid item xs={12}>
             <TableContainer

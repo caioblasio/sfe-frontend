@@ -1,9 +1,14 @@
 import { makeStyles } from "@material-ui/core/styles";
 
-const useStyles = makeStyles((theme) => {
-  console.log(theme);
+const useStyles = makeStyles(() => {
   return {
-    tableContainer: {},
+    cardActions: {
+      justifyContent: "space-between",
+    },
+    cardActionsButton: {
+      fontSize: "0.75rem",
+      fontWeight: "400",
+    },
   };
 });
 
