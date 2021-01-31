@@ -26,7 +26,7 @@ module.exports = {
   output: {
     path: `${__root}/dist`,
     filename: "[name].js",
-    publicPath: "/",
+    publicPath: process.env.ASSETS_PATH || "/",
   },
   target: "web",
   module: {
@@ -56,6 +56,8 @@ module.exports = {
       MODELS: JSON.stringify(MODELS),
       STEPS: JSON.stringify(STEPS),
       FIELDS: JSON.stringify(FIELDS),
+      IS_UNICAMP_BUILD: JSON.stringify(process.env.IS_UNICAMP_BUILD),
+      URL_PREFIX: JSON.stringify(process.env.URL_PREFIX) || '"/"',
     }),
     new BannerPlugin({
       banner: BANNER_METADATA,

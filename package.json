@@ -9,6 +9,7 @@
     "prebuild": "npm run clean",
     "build": "npx webpack --config ./internals/webpack/webpack.build.js",
     "build:prod": "npx cross-env NODE_ENV=production npm run build",
+    "build:ftp": "npx cross-env NODE_ENV=production IS_UNICAMP_BUILD=true ASSETS_PATH=/~101543/ URL_PREFIX=/~101543 npm run build",
     "build:dev": "npx cross-env NODE_ENV=dev npm run build -- --colors --progress",
     "start": "npx cross-env NODE_ENV=development webpack-dev-server --config ./internals/webpack/webpack.serve.js --colors --progress",
     "test": "npx cross-env NODE_ENV=test npx jest --coverage --verbose",

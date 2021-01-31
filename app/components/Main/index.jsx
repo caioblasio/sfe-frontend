@@ -25,16 +25,9 @@ const Main = () => {
       <ThemeProvider theme={theme}>
         <CssBaseline />
         <div style={{ minHeight: "100vh" }}>
-          <Router>
+          <Router basename={URL_PREFIX}>
             <Topbar />
-            <Switch>
-              <Route exact path="/">
-                <Redirect to="/welcome" />
-              </Route>
-              <Route path="*">
-                <Navigation />
-              </Route>
-            </Switch>
+            <Navigation />
           </Router>
         </div>
         <Footer />

@@ -1,6 +1,5 @@
 import React from "react";
-import { Route, Switch, useLocation } from "react-router-dom";
-import { TransitionGroup, CSSTransition } from "react-transition-group";
+import { Route, Switch } from "react-router-dom";
 import Home from "pages/Home";
 import Models from "pages/Models";
 import Experimental from "pages/Experimental";
@@ -13,6 +12,7 @@ import Background from "pages/institutional/Background";
 import Instructions from "pages/institutional/Instructions";
 
 import {
+  homeURL,
   welcomeURL,
   modelsURL,
   experimentalURL,
@@ -25,23 +25,19 @@ import {
   aboutURL,
 } from "configs/urls";
 
-const Navigation = () => {
-  let location = useLocation();
-
-  return (
-    <Switch location={location}>
-      <Route path={welcomeURL()} component={Home} />
-      <Route path={modelsURL()} component={Models} />
-      <Route path={experimentalURL()} component={Experimental} />
-      <Route path={extractionURL()} component={Extraction} />
-      <Route path={calculationURL()} component={Calculation} />
-      <Route path={previewURL()} component={Preview} />
-      <Route path={resultsURL()} component={Results} />
-      <Route path={aboutURL()} component={About} />
-      <Route path={backgroundURL()} component={Background} />
-      <Route path={instructionsURL()} component={Instructions} />
-    </Switch>
-  );
-};
+const Navigation = () => (
+  <Switch>
+    <Route exact path={homeURL()} component={Home} />
+    <Route path={modelsURL()} component={Models} />
+    <Route path={experimentalURL()} component={Experimental} />
+    <Route path={extractionURL()} component={Extraction} />
+    <Route path={calculationURL()} component={Calculation} />
+    <Route path={previewURL()} component={Preview} />
+    <Route path={resultsURL()} component={Results} />
+    <Route path={aboutURL()} component={About} />
+    <Route path={backgroundURL()} component={Background} />
+    <Route path={instructionsURL()} component={Instructions} />
+  </Switch>
+);
 
 export default Navigation;
