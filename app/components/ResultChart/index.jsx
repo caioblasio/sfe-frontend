@@ -12,6 +12,7 @@ import {
   Scatter,
 } from "recharts";
 import { Typography, Grid, Card, CardContent } from "@material-ui/core";
+import { convertToExponential } from "utils/formatter";
 
 const ResultChart = ({ data }) => {
   if (!data.length) {
@@ -28,50 +29,57 @@ const ResultChart = ({ data }) => {
             </Typography>
           </Grid>
           <Grid item xs={12}>
-            <ResponsiveContainer width="100%" height={400}>
-              <ComposedChart
-                data={data}
-                margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
-              >
-                <XAxis dataKey="time">
-                  <Label
-                    value="Time (s)"
-                    position="insideBottomRight"
-                    offset={0}
-                  />
-                </XAxis>
-                <YAxis
-                  tickFormatter={(tick) => {
-                    return tick.toExponential(2);
-                  }}
+            <div style={{ height: "400px" }}>
+              <ResponsiveContainer width="100%">
+                <ComposedChart
+                  data={data}
+                  margin={{ top: 5, right: 30, left: 30, bottom: 5 }}
                 >
-                  <Label
-                    value="Mass (kg)"
-                    position="left"
-                    offset={10}
-                    angle={-90}
-                  />
-                </YAxis>
-                <CartesianGrid strokeDasharray="3 3" />
-                <Tooltip />
-                <Legend />
-                {Object.keys(data[0])
-                  .filter((key) => key !== "time" && key !== "experimental")
-                  .map((key) => (
-                    <Line
-                      type="monotone"
-                      dataKey={key}
-                      name={MODELS[key].name}
-                      stroke={MODELS[key].chartColor}
+                  <XAxis
+                    dataKey="time"
+                    type="number"
+                    scale="time"
+                    domain={[0, "dataMax"]}
+                  >
+                    <Label
+                      value="Time (s)"
+                      position="insideBottomRight"
+                      offset={0}
                     />
-                  ))}
-                <Scatter
-                  name="Experimental"
-                  dataKey="experimental"
-                  fill="#424242"
-                />
-              </ComposedChart>
-            </ResponsiveContainer>
+                  </XAxis>
+                  <YAxis
+                    tickFormatter={(tick) => {
+                      return convertToExponential(tick);
+                    }}
+                  >
+                    <Label
+                      value="Mass (kg)"
+                      position="left"
+                      offset={10}
+                      angle={-90}
+                    />
+                  </YAxis>
+                  <CartesianGrid strokeDasharray="3 3" />
+                  <Tooltip />
+                  <Legend />
+                  {Object.keys(data[0])
+                    .filter((key) => key !== "time" && key !== "experimental")
+                    .map((key) => (
+                      <Line
+                        type="monotone"
+                        dataKey={key}
+                        name={MODELS[key].name}
+                        stroke={MODELS[key].chartColor}
+                      />
+                    ))}
+                  <Scatter
+                    name="Experimental"
+                    dataKey="experimental"
+                    fill="#424242"
+                  />
+                </ComposedChart>
+              </ResponsiveContainer>
+            </div>
           </Grid>
         </Grid>
       </CardContent>

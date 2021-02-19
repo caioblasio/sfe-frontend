@@ -1,1 +1,1 @@
-export const convertToExponential = (number) => Number(number).toExponential(2);
+export const convertToExponential = (number) => Number(number).toExponential(4);

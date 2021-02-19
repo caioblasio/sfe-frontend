@@ -47,8 +47,8 @@ const Provider = ({
       results[key].data
         .map(({ time, experimental, calculated }) => ({
           time: Number(time),
-          experimental: convertToExponential(experimental),
-          [`${key}`]: convertToExponential(calculated),
+          experimental: Number(experimental),
+          [`${key}`]: Number(calculated),
         }))
         .forEach((set, index) => {
           data[index] = { ...data[index], ...set };
