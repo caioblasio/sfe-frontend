@@ -31,16 +31,16 @@ const reducer = (state = initialState, { type, payload }) => {
   switch (type) {
     case CHANGE_VALUES:
       return state
-        .setIn(["values", "aa"], payload.aa)
-        .setIn(["values", "dsolid"], payload.dsolid)
-        .setIn(["values", "dpa"], payload.dpa)
-        .setIn(["values", "msolid"], payload.msolid)
-        .setIn(["values", "dfluid"], payload.dfluid)
-        .setIn(["values", "qq"], payload.qq)
-        .setIn(["values", "solubility"], payload.solubility)
-        .setIn(["values", "eb"], payload.eb)
-        .setIn(["values", "hc"], payload.hc)
-        .setIn(["values", "dc"], payload.dc);
+        .setIn(["values", "aa"], payload.aa || "")
+        .setIn(["values", "dsolid"], payload.dsolid || "")
+        .setIn(["values", "dpa"], payload.dpa || "")
+        .setIn(["values", "msolid"], payload.msolid || "")
+        .setIn(["values", "dfluid"], payload.dfluid || "")
+        .setIn(["values", "qq"], payload.qq || "")
+        .setIn(["values", "solubility"], payload.solubility || "")
+        .setIn(["values", "eb"], payload.eb || "")
+        .setIn(["values", "hc"], payload.hc || "")
+        .setIn(["values", "dc"], payload.dc || "");
 
     case ADD_MODEL:
       return state.set("models", fromJS(payload));

@@ -49,7 +49,7 @@ const ResultChart = ({ data }) => {
                   </XAxis>
                   <YAxis
                     tickFormatter={(tick) => {
-                      return convertToExponential(tick);
+                      return convertToExponential(tick, 2);
                     }}
                   >
                     <Label

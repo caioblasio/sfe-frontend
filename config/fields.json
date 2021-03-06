@@ -4,7 +4,10 @@
       "aa": {
         "id": 1,
         "name": "aa",
-        "label": "Solute initial concentration in solid (%)"
+        "label": "Solute initial concentration in solid (0 to 1)",
+        "props": {
+          "startAdornment": "%"
+        }
       },
       "dsolid": {
         "id": 2,
@@ -19,7 +22,7 @@
       "msolid": {
         "id": 4,
         "name": "msolid",
-        "label": "Solid Mass (g)"
+        "label": "Solid Mass (kg)"
       },
       "dfluid": {
         "id": 6,

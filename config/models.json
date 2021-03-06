@@ -17,55 +17,63 @@
         "hc",
         "dc"
       ],
-      "chartColor": "#00bcd4"
+      "chartColor": "#eb3434"
     },
     "reverchon": {
       "id": 2,
       "name": "Reverchon",
       "year": "1993",
       "option": "\"B\"",
-      "fields": [],
-      "chartColor": "#2196f3"
+      "fields": ["aa", "msolid"],
+      "chartColor": "#34eb46"
     },
     "esquivel": {
       "id": 3,
       "name": "Esquivel",
       "year": "1999",
       "option": "\"C\"",
-      "fields": [],
-      "chartColor": "#4caf50"
+      "fields": ["aa", "msolid"],
+      "chartColor": "#6a2899"
     },
     "zekovic": {
       "id": 4,
       "name": "Zekovic",
       "year": "2003",
       "option": "\"D\"",
-      "fields": [],
-      "chartColor": "#ff5722"
+      "fields": ["aa", "msolid"],
+      "chartColor": "#eba534"
     },
     "nguyen": {
       "id": 5,
       "name": "Nguyen",
       "year": "1991",
       "option": "\"E\"",
-      "fields": [],
-      "chartColor": "#673ab7"
+      "fields": ["aa", "msolid"],
+      "chartColor": "#3462eb"
     },
     "verljkovic": {
       "id": 6,
       "name": "Veljkovic and Milenovic",
       "year": "2002",
       "option": "\"F\"",
-      "fields": [],
-      "chartColor": "#8f8d0b"
+      "fields": ["aa", "msolid"],
+      "chartColor": "#34ebc3"
     },
     "pkm": {
       "id": 7,
       "name": "PKM",
       "year": "2012",
       "option": "\"G\"",
+      "fields": ["aa", "msolid"],
+      "chartColor": "#eb34d6"
+    },
+    "spline": {
+      "id": 8,
+      "name": "Spline Model (3 lines)",
+      "year": "2002",
+      "option": "\"H\"",
       "fields": [],
-      "chartColor": "#009688"
+      "chartColor": "#ab1549"
     }
   }
 }
