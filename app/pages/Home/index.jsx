@@ -31,7 +31,7 @@ const Home = () => {
               history.push(modelsURL());
             }}
           >
-            Let's get started!
+            Start Simulation
           </Button>
         </Grid>
       </Grid>

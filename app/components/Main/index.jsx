@@ -1,10 +1,5 @@
 import React from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Switch,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import CssBaseline from "@material-ui/core/CssBaseline";
 import { createMuiTheme, ThemeProvider } from "@material-ui/core/styles";
 import Navigation from "routes";
@@ -16,6 +11,12 @@ const theme = createMuiTheme({
     background: {
       default: "#fff",
     },
+    primary: {
+      main: "#9a0000",
+    },
+  },
+  typography: {
+    fontFamily: '"Oswald", "Roboto", "sans-serif"',
   },
 });
 

@@ -13,7 +13,6 @@ import Instructions from "pages/institutional/Instructions";
 
 import {
   homeURL,
-  welcomeURL,
   modelsURL,
   experimentalURL,
   instructionsURL,

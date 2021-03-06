@@ -1,4 +1,4 @@
-import { ADD_POINTS } from "./constants";
+import { ADD_POINTS, RESET_STATE } from "./constants";
 
 function addPoints(points = []) {
   return {
@@ -7,6 +7,13 @@ function addPoints(points = []) {
   };
 }
 
+function resetState() {
+  return {
+    type: RESET_STATE,
+  };
+}
+
 export default {
   addPoints,
+  resetState,
 };

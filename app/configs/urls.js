@@ -1,6 +1,5 @@
 //Application URLs
 export const homeURL = () => "/";
-export const welcomeURL = () => "/welcome";
 export const instructionsURL = () => "/instructions";
 export const backgroundURL = () => "/background";
 export const aboutURL = () => "/about";

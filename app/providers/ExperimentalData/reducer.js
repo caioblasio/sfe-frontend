@@ -4,6 +4,7 @@ import {
   ADD_MODEL,
   CHANGE_CALCULATION_VALUES,
   RESET_VALUES,
+  RESET_STATE,
 } from "./constants";
 
 export const initialState = fromJS({
@@ -63,6 +64,9 @@ const reducer = (state = initialState, { type, payload }) => {
         .setIn(["values", "eb"], "")
         .setIn(["values", "hc"], "")
         .setIn(["values", "dc"], "");
+
+    case RESET_STATE:
+      return initialState;
 
     default:
       return state;

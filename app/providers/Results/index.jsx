@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 import { connect } from "react-redux";
+import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
+import { Grid, Typography, Button } from "@material-ui/core";
 import {
   ExperimentalDataSelectors,
   ExtractionDataSelectors,
@@ -9,13 +11,9 @@ import {
   StatusSelectors,
 } from "providers";
 import ResultItem from "components/ResultItem";
-import Grid from "@material-ui/core/Grid";
-import Typography from "@material-ui/core/Typography";
 import ResultChart from "components/ResultChart";
-
+import { modelsURL } from "configs/urls";
 import useStyles from "./styles";
-
-import { convertToExponential } from "utils/formatter";
 
 const Provider = ({
   calculationValues,
@@ -25,8 +23,10 @@ const Provider = ({
   fetchResults,
   results,
   isLoading,
+  resetResults,
 }) => {
   const classes = useStyles();
+  const history = useHistory();
 
   useEffect(() => {
     const data = {
@@ -69,6 +69,18 @@ const Provider = ({
           Results of your simulation
         </Typography>
       </Grid>
+      <Grid item xs={12} className={classes.new}>
+        <Button
+          color="default"
+          variant="outlined"
+          onClick={() => {
+            resetResults();
+            history.push(modelsURL());
+          }}
+        >
+          Click here to start a new simulation
+        </Button>
+      </Grid>
       <Grid item xs={12}>
         <ResultChart data={getChartData()} />
       </Grid>
@@ -97,6 +109,9 @@ const mapStateToProps = createStructuredSelector({
 const mapDispatchToProps = (dispatch) => ({
   fetchResults: (models, data) =>
     dispatch(ResultsActions.fetchResults(models, data)),
+  resetResults: () => {
+    dispatch(ResultsActions.resetResults());
+  },
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Provider);

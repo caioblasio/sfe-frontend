@@ -37,7 +37,7 @@
       "solubility": {
         "id": 8,
         "name": "solubility",
-        "label": "Solubility (%)"
+        "label": "Solubility (g/g)"
       },
       "eb": {
         "id": 9,

@@ -1,20 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
+import { Grid, TextField } from "@material-ui/core";
 import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
-import useStyles from "./styles";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Container from "@material-ui/core/Container";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
-import Stepper from "components/Stepper";
-import Page from "pages";
 import { modelsURL, extractionURL } from "configs/urls";
+import Stepper from "components/Stepper";
+import Navigator from "components/Navigator";
+import Page from "pages";
+import useStyles from "./styles";
 
 const Experimental = ({
   values,
@@ -43,7 +39,7 @@ const Experimental = ({
 
   const content = !!fields.length ? (
     fields.map((field) => (
-      <Grid key={field} item sm={3}>
+      <Grid key={field} item sm={4}>
         <TextField
           error={!!errors[field]}
           name={field}
@@ -58,6 +54,7 @@ const Experimental = ({
           variant="outlined"
           defaultValue={values[field]}
           helperText={errors[field]?.message}
+          className={classes.field}
         />
       </Grid>
     ))
@@ -82,6 +79,12 @@ const Experimental = ({
   return (
     <Page>
       <Stepper activeStep={1} />
+      <Navigator
+        onBack={() => {
+          history.goBack();
+        }}
+        onNext={handleSubmit(onSubmit)}
+      />
       <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12}>
           <Typography variant="h5" component="h1">
@@ -89,40 +92,10 @@ const Experimental = ({
           </Typography>
         </Grid>
         <Grid item xs={12}>
-          <form onSubmit={handleSubmit(onSubmit)}>
-            <Container maxWidth="md">
-              <Grid container spacing={4}>
-                <Grid container item spacing={6}>
-                  {content}
-                </Grid>
-                <Grid container item spacing={6}>
-                  <Grid item xs={6}>
-                    <Button
-                      size="large"
-                      variant="contained"
-                      color="default"
-                      startIcon={<NavigateBeforeIcon />}
-                      onClick={() => {
-                        history.goBack();
-                      }}
-                    >
-                      Back
-                    </Button>
-                  </Grid>
-                  <Grid item xs={6}>
-                    <Button
-                      size="large"
-                      variant="contained"
-                      color="primary"
-                      endIcon={<NavigateNextIcon />}
-                      type="submit"
-                    >
-                      Next
-                    </Button>
-                  </Grid>
-                </Grid>
-              </Grid>
-            </Container>
+          <form>
+            <Grid container item spacing={6}>
+              {content}
+            </Grid>
           </form>
         </Grid>
       </Grid>

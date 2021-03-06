@@ -1,11 +1,11 @@
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(() => ({
-  root: {
-    textAlign: "center",
+  beforeButton: {
+    textAlign: "left",
   },
-  field: {
-    width: "100%",
+  nextButton: {
+    textAlign: "right",
   },
 }));
 

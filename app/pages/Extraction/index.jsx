@@ -4,29 +4,30 @@ import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Container from "@material-ui/core/Container";
-import Table from "@material-ui/core/Table";
-import TableBody from "@material-ui/core/TableBody";
-import TableCell from "@material-ui/core/TableCell";
-import TableContainer from "@material-ui/core/TableContainer";
-import TableHead from "@material-ui/core/TableHead";
-import TableRow from "@material-ui/core/TableRow";
+import csv from "csvtojson";
+import {
+  Grid,
+  Button,
+  TextField,
+  Container,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Paper,
+} from "@material-ui/core";
 import Stepper from "components/Stepper";
-import Paper from "@material-ui/core/Paper";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
 import Page from "pages";
 import {
   ExtractionDataActions,
   ExtractionDataSelectors,
   ExperimentalDataSelectors,
 } from "providers";
-import useStyles from "./styles";
 import { modelsURL, calculationURL } from "configs/urls";
-import csv from "csvtojson";
+import Navigator from "components/Navigator";
+import useStyles from "./styles";
 
 const Extraction = ({ points, selectedModels, addPoints }) => {
   const classes = useStyles();
@@ -123,6 +124,12 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
   return (
     <Page>
       <Stepper activeStep={2} />
+      <Navigator
+        onBack={() => {
+          history.goBack();
+        }}
+        onNext={handleSubmit(onSubmit)}
+      />
       <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12}>
           <Typography variant="h5" component="h1">
@@ -190,77 +197,45 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
         </Grid>
         <Grid item xs={12}>
           <Container maxWidth="md">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <Grid container spacing={4}>
+            <form>
+              <Grid container spacing={4} className={classes.tableContainer}>
                 <Grid item xs={12}>
-                  <Grid
-                    container
-                    spacing={4}
-                    className={classes.tableContainer}
-                  >
-                    <Grid item xs={12}>
-                      <TableContainer component={Paper}>
-                        <Table>
-                          <TableHead>
-                            <TableRow>
-                              <TableCell align="center">
-                                Extraction Time (s)
-                              </TableCell>
-                              <TableCell align="center">
-                                Extracted Mass (kg)
-                              </TableCell>
-                            </TableRow>
-                          </TableHead>
-                          <TableBody>{generateRows()}</TableBody>
-                        </Table>
-                      </TableContainer>
-                    </Grid>
-                    <Grid item xs={12} className={classes.buttonContainer}>
-                      <Button
-                        color="default"
-                        variant="outlined"
-                        onClick={() => {
-                          const newCoordinates = [...coordinates];
-                          newCoordinates.pop();
-                          setCoordinates(newCoordinates);
-                        }}
-                      >
-                        Remove Row
-                      </Button>
-                      <Button
-                        color="default"
-                        variant="outlined"
-                        onClick={() => {
-                          setCoordinates([...coordinates, {}]);
-                        }}
-                      >
-                        Add Row
-                      </Button>
-                    </Grid>
-                  </Grid>
+                  <TableContainer component={Paper}>
+                    <Table>
+                      <TableHead>
+                        <TableRow>
+                          <TableCell align="center">
+                            Extraction Time (s)
+                          </TableCell>
+                          <TableCell align="center">
+                            Extracted Mass (kg)
+                          </TableCell>
+                        </TableRow>
+                      </TableHead>
+                      <TableBody>{generateRows()}</TableBody>
+                    </Table>
+                  </TableContainer>
                 </Grid>
-                <Grid item xs={6}>
+                <Grid item xs={12} className={classes.buttonContainer}>
                   <Button
-                    size="large"
-                    variant="contained"
                     color="default"
-                    startIcon={<NavigateBeforeIcon />}
+                    variant="outlined"
                     onClick={() => {
-                      history.goBack();
+                      const newCoordinates = [...coordinates];
+                      newCoordinates.pop();
+                      setCoordinates(newCoordinates);
                     }}
                   >
-                    Back
+                    Remove Row
                   </Button>
-                </Grid>
-                <Grid item xs={6}>
                   <Button
-                    size="large"
-                    variant="contained"
-                    color="primary"
-                    endIcon={<NavigateNextIcon />}
-                    type="submit"
+                    color="default"
+                    variant="outlined"
+                    onClick={() => {
+                      setCoordinates([...coordinates, {}]);
+                    }}
                   >
-                    Next
+                    Add Row
                   </Button>
                 </Grid>
               </Grid>

@@ -1,20 +1,16 @@
-import React, { useEffect, useCallback } from "react";
+import React, { useEffect } from "react";
 import Typography from "@material-ui/core/Typography";
 import { connect } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { useForm } from "react-hook-form";
+import { Grid, TextField, Container } from "@material-ui/core";
 import { ExperimentalDataActions, ExperimentalDataSelectors } from "providers";
-import useStyles from "./styles";
-import Grid from "@material-ui/core/Grid";
-import Button from "@material-ui/core/Button";
-import TextField from "@material-ui/core/TextField";
-import Container from "@material-ui/core/Container";
-import NavigateNextIcon from "@material-ui/icons/NavigateNext";
-import NavigateBeforeIcon from "@material-ui/icons/NavigateBefore";
+import { modelsURL, previewURL } from "configs/urls";
 import Stepper from "components/Stepper";
 import Page from "pages";
-import { modelsURL, previewURL } from "configs/urls";
+import Navigator from "components/Navigator";
+import useStyles from "./styles";
 
 const Calculation = ({
   calculationValues,
@@ -40,6 +36,12 @@ const Calculation = ({
   return (
     <Page>
       <Stepper activeStep={3} />
+      <Navigator
+        onBack={() => {
+          history.goBack();
+        }}
+        onNext={handleSubmit(onSubmit)}
+      />
       <Grid container spacing={4} className={classes.root}>
         <Grid item xs={12}>
           <Typography variant="h5" component="h1">
@@ -48,7 +50,7 @@ const Calculation = ({
         </Grid>
         <Grid item xs={12}>
           <Container maxWidth="md">
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form>
               <Grid container spacing={8}>
                 {Object.keys(FIELDS.calculation).map((field) => (
                   <Grid key={field} item sm={4}>
@@ -74,30 +76,6 @@ const Calculation = ({
                     />
                   </Grid>
                 ))}
-                <Grid item xs={6}>
-                  <Button
-                    size="large"
-                    variant="contained"
-                    color="default"
-                    startIcon={<NavigateBeforeIcon />}
-                    onClick={() => {
-                      history.goBack();
-                    }}
-                  >
-                    Back
-                  </Button>
-                </Grid>
-                <Grid item xs={6}>
-                  <Button
-                    size="large"
-                    color="primary"
-                    variant="contained"
-                    type="submit"
-                    endIcon={<NavigateNextIcon />}
-                  >
-                    Next
-                  </Button>
-                </Grid>
               </Grid>
             </form>
           </Container>
