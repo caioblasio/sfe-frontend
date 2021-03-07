@@ -14,12 +14,14 @@ import figure4 from "assets/background-page-figure-4.png";
 import sovovaEq1 from "assets/background-page-sovova-1.png";
 import sovovaEq2 from "assets/background-page-sovova-2.png";
 import sovovaEq3 from "assets/background-page-sovova-3.png";
+import sovovaEq4 from "assets/background-page-sovova-4.png";
 import reverchonEq1 from "assets/background-page-reverchon-1.png";
 import esquivelEq1 from "assets/background-page-esquivel-1.png";
 import zekovicEq1 from "assets/background-page-zekovic-1.png";
 import nguyenEq1 from "assets/background-page-nguyen-1.png";
 import veljkovicEq1 from "assets/background-page-veljkovic-1.png";
 import pkmEq1 from "assets/background-page-pkm-1.png";
+import splineEq1 from "assets/background-page-spline-1.png";
 
 import { useQuery } from "hooks";
 
@@ -188,28 +190,65 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      a.k.a as ‘Broken and Intact Cells’ model, it assumes that
-                      the initial solute concentration x<small>0</small> is
+                      Also known as ‘Broken and Intact Cells’ model, it assumes
+                      that the initial solute concentration x<small>0</small> is
                       distributed in two fractions: an easily accessible and
-                      another one that resides inside the solid particles, x
-                      <small>p</small> and x<small>k</small>
-                      respectively). The kinetics are divided in three
+                      another one that remains inside the solid particles, (1-k
+                      <small>1</small>) and k<small>1</small>
+                      respectively. The kinetics are divided in three
                       consecutive phases: constant extraction rate (CER),
                       falling extraction rate (FER) and diffusive. The model is
-                      based upon differential mass balances that result on
-                      differential equations that can be solved either (i)
-                      analytically as proposed by the model author initially, or
-                      (ii) numerically as an alternative way.
+                      based upon differential mass balances on the fluid and
+                      solid phases, as presented respectively by Equations 2 and
+                      3.
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={sovovaEq1} width={200} />
+                    <img src={sovovaEq1} width={600} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      This model assumes that both the axial dispersion in the
+                      fluid phase and the axial diffusion in the solid phase, as
+                      well as the fluid phase concentration variation with time,
+                      are neglectable. Besides, it is assumed that, at time
+                      zero, the solute is evenly distributed throughout the
+                      column (initial condition – Equation 4), and that the
+                      fluid constantly feeds the column with concentration zero
+                      (boundary condition – Equation 5).
+                    </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={sovovaEq2} width={200} />
+                    <img src={sovovaEq2} width={600} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      As proposed by author, the mass-transfer flux is dependent
+                      on the solid concentration inside the particles, whether
+                      it is above or below the critical concentration k
+                      <small>1</small>. While the solid concentration is above k
+                      <small>1</small>, the process is regulated by the
+                      fluid-phase mass transfer coefficient k<small>3</small>,
+                      whereas once lower concentrations are reached, the process
+                      is mainly regulated by the solid-phase mass transfer
+                      coefficient k<small>2</small>, as presented in Equations 6
+                      and 7.
+                    </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
                     <img src={sovovaEq3} width={600} />
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      The mass balance equations (Equations 2 and 3) are solved
+                      numerically using the finite difference method and the
+                      accumulated extracted yield is obtained by integrating the
+                      solute extracted at the top of the column, as presented in
+                      Equation 8.
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} className={classes.imgContainer}>
+                    <img src={sovovaEq4} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -219,11 +258,12 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      empirical model with a single adjustable parameter
+                      Empirical model with a single adjustable parameter k
+                      <small>1</small>, as presented in Equation 9
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={reverchonEq1} width={200} />
+                    <img src={reverchonEq1} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -233,11 +273,12 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      empirical model with a single adjustable parameter
+                      Empirical model with a single adjustable parameter k
+                      <small>1</small>, as presented in Equation 10
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={esquivelEq1} width={200} />
+                    <img src={esquivelEq1} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -247,11 +288,13 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      empirical model with two adjustables parameters
+                      Empirical model with two adjustable parameters k
+                      <small>1</small> and k<small>2</small>, as presented in
+                      Equation 11
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={zekovicEq1} width={300} />
+                    <img src={zekovicEq1} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -261,13 +304,13 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      empirical model that assumes that all mass-transfer
+                      Empirical model that assumes that all mass-transfer
                       phenomena is regulated by the resistance inside the solid
-                      k<small>1</small>
+                      k<small>1</small>, as presented in Equation 12
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={nguyenEq1} width={200} />
+                    <img src={nguyenEq1} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -277,18 +320,19 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      empirical model that assumes that SFE takes place in two
+                      Empirical model that assumes that SFE takes place in two
                       phases: (i) leakage, where the easily accessible solute
-                      fraction k3 will have its extraction ruled by the
-                      mass-transfer coefficient k<small>1</small> in the fluid
-                      phase; and (ii) diffusion, where the non-easily accessible
-                      solute fraction (1-k<small>3</small>) will have its
-                      extraction regulated by the mass-transfer coefficient k
-                      <small>2</small> inside the particles.
+                      fraction k<small>3</small> will have its extraction ruled
+                      by the mass-transfer coefficient k<small>1</small> in the
+                      fluid phase; and (ii) diffusion, where the non-easily
+                      accessible solute fraction (1-k<small>3</small>) will have
+                      its extraction regulated by the mass-transfer coefficient
+                      k<small>2</small> inside the particles, as presented in
+                      Equation 13
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={veljkovicEq1} className={classes.imgNormal} />
+                    <img src={veljkovicEq1} width={600} />
                   </Grid>
                   <Divider />
                   <Grid item xs={12}>
@@ -298,17 +342,35 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography>
-                      model that interprets the extraction process as a series
+                      Model that interprets the extraction process as a series
                       of chemical reactions. As in Sovová (1994), the solid is
-                      divided is two portions x<small>p</small> and x
-                      <small>k</small>. The mass-transfer is regulated by one
-                      coefficient in the fluid phase k<small>1</small> and two
-                      in the solid phase k<small>2</small> and k<small>3</small>
-                      .
+                      divided is two portions k<small>3</small> and (1-k
+                      <small>3</small>). The mass-transfer is regulated by
+                      coefficients k<small>2</small> in the fluid phase and k
+                      <small>1</small>
+                      in e solid phase, respectively, as presented in Equation
+                      14
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
-                    <img src={pkmEq1} width={200} />
+                    <img src={pkmEq1} width={600} />
+                  </Grid>
+                  <Divider />
+                  <Grid item xs={12}>
+                    <Typography variant="h6" component="h2">
+                      Spline Model (2002)
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      Model that fits the curve with three lines, each one for
+                      the different extraction phases: constant extraction rate
+                      (CER), falling extraction rate (FER), and
+                      diffusion-controlled periods (DC).
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12} className={classes.imgContainer}>
+                    <img src={splineEq1} width={600} />
                   </Grid>
                 </Grid>
               </Grid>
