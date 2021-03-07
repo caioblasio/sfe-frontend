@@ -55,17 +55,16 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
   const readFile = (event) => {
     const reader = new FileReader();
     reader.onload = function () {
-      console.log(reader.result);
+      const result = reader.result;
       const csvStr = `x,y
-      ${reader.result}`;
+      ${result}`;
       (async () => {
         const jsonObj = await csv().fromString(csvStr);
-        console.log(jsonObj);
         setCoordinates(jsonObj);
       })();
     };
     // start reading the file. When it is done, calls the onload event defined above.
-    reader.readAsBinaryString(event.target.files[0]);
+    reader.readAsText(event.target.files[0]);
   };
 
   const generateRows = () => {
@@ -177,7 +176,6 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
         <Grid item xs={12}>
           <input
             accept=".csv"
-            className={classes.input}
             id="upload-file"
             multiple
             hidden
@@ -186,7 +184,6 @@ const Extraction = ({ points, selectedModels, addPoints }) => {
           />
           <label htmlFor="upload-file">
             <Button
-              raised
               component="span"
               variant="outlined"
               className={classes.buttonFile}

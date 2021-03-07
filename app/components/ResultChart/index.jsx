@@ -66,6 +66,7 @@ const ResultChart = ({ data }) => {
                     .filter((key) => key !== "time" && key !== "experimental")
                     .map((key) => (
                       <Line
+                        key={key}
                         type="monotone"
                         dataKey={key}
                         name={MODELS[key].name}

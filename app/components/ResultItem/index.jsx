@@ -30,14 +30,18 @@ const ResultItem = ({ model, values, data }) => {
       <TableHead>
         <TableRow>
           {Object.keys(values).map((key) => (
-            <TableCell align="right">{key}</TableCell>
+            <TableCell align="right" key={key}>
+              {key}
+            </TableCell>
           ))}
         </TableRow>
       </TableHead>
       <TableBody>
         <TableRow>
-          {Object.values(values).map((value) => (
-            <TableCell align="right">{convertToExponential(value)}</TableCell>
+          {Object.values(values).map((value, index) => (
+            <TableCell align="right" key={index}>
+              {convertToExponential(value)}
+            </TableCell>
           ))}
         </TableRow>
       </TableBody>

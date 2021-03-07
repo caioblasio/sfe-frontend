@@ -17,7 +17,7 @@ const Navigator = ({
   const classes = useStyles();
   return (
     <Grid container item spacing={6}>
-      <Grid item xs={6} classeName={classes.beforeButton}>
+      <Grid item xs={6} className={classes.beforeButton}>
         <Button
           size="large"
           variant="outlined"

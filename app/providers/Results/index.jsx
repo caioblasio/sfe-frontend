@@ -87,7 +87,7 @@ const Provider = ({
         <ResultChart data={getChartData()} />
       </Grid>
       {Object.keys(results).map((model) => (
-        <Grid item xs={12}>
+        <Grid item xs={12} key={model}>
           <ResultItem
             model={model}
             data={results[model].data}

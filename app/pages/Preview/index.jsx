@@ -107,7 +107,7 @@ const Preview = ({
                       {Object.keys(experimentalValues).map(
                         (value) =>
                           experimentalValues[value] && (
-                            <Typography>
+                            <Typography key={value}>
                               <Typography component="span">{`${FIELDS.extraction[value].label}: `}</Typography>
                               <Typography
                                 variant="body1"
@@ -148,7 +148,7 @@ const Preview = ({
                   </Typography>
                   <div>
                     {points.map((point, index) => (
-                      <Grid container>
+                      <Grid container key={index}>
                         <Grid item xs={6}>
                           <Typography component="span">
                             t<small>({index})</small>:{"        "}
@@ -199,7 +199,7 @@ const Preview = ({
                   </Typography>
                   <div>
                     {Object.keys(calculationValues).map((value) => (
-                      <Typography>
+                      <Typography key={value}>
                         <Typography component="span">{`${FIELDS.calculation[value].label}: `}</Typography>
                         <Typography
                           variant="body1"
