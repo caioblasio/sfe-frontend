@@ -7,6 +7,7 @@ const API_ENVIRONMENTS_URL = {
 export const SCOPE = "providers/Results";
 
 export const FETCH_RESULTS = `${SCOPE}/FETCH_RESULTS`;
+export const FETCH_RESULTS_START = `${SCOPE}/FETCH_RESULTS_START`;
 export const FETCH_RESULTS_SUCCESS = `${SCOPE}/FETCH_RESULTS_SUCCESS`;
 export const RESET_RESULTS = `${SCOPE}/RESET_RESULTS`;
 

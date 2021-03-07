@@ -17,9 +17,13 @@ import useStyles from "./styles";
 import { convertToExponential } from "utils/formatter";
 import { backgroundURL } from "configs/urls";
 
+import Loading from "components/Loading";
+
 const ResultItem = ({ model, values, data }) => {
   const classes = useStyles();
   const history = useHistory();
+
+  const isReady = data && values;
 
   const createParamsTable = () => (
     <Table>
@@ -47,60 +51,66 @@ const ResultItem = ({ model, values, data }) => {
           <Typography variant="h5" component="h2" gutterBottom>
             {MODELS[model].name}
           </Typography>
-          <Button
-            className={classes.cardActionsButton}
-            color="default"
-            onClick={() => {
-              history.push(`${backgroundURL()}?tab=1`);
-            }}
-          >
-            For detailed information regarding the model parameters ki, please
-            click here
-          </Button>
+          {isReady && (
+            <Button
+              className={classes.cardActionsButton}
+              color="default"
+              onClick={() => {
+                history.push(`${backgroundURL()}?tab=1`);
+              }}
+            >
+              For detailed information regarding the model parameters ki, please
+              click here
+            </Button>
+          )}
         </CardActions>
-        <Grid container spacing={4}>
-          <Grid item xs={12}>
-            <TableContainer
-              component={Paper}
-              className={classes.tableContainer}
-            >
-              {createParamsTable()}
-            </TableContainer>
-          </Grid>
-          <Grid item xs={12}>
-            <TableContainer
-              component={Paper}
-              className={classes.tableContainer}
-            >
-              <Table aria-label="simple table">
-                <TableHead>
-                  <TableRow>
-                    <TableCell align="right">Extraction Time (s)</TableCell>
-                    <TableCell align="right">
-                      Extraction Mass (kg) - Experimental
-                    </TableCell>
-                    <TableCell align="right">
-                      Extraction Mass (kg) - Calculated
-                    </TableCell>
-                  </TableRow>
-                </TableHead>
-                <TableBody>
-                  {data.map((row, index) => (
-                    <TableRow key={index}>
-                      <TableCell align="right">{row.time}</TableCell>
+        {isReady ? (
+          <Grid container spacing={4}>
+            <Grid item xs={12}>
+              <TableContainer
+                component={Paper}
+                className={classes.tableContainer}
+              >
+                {createParamsTable()}
+              </TableContainer>
+            </Grid>
+            <Grid item xs={12}>
+              <TableContainer
+                component={Paper}
+                className={classes.tableContainer}
+              >
+                <Table aria-label="simple table">
+                  <TableHead>
+                    <TableRow>
+                      <TableCell align="right">Extraction Time (s)</TableCell>
                       <TableCell align="right">
-                        {convertToExponential(row.experimental)}
+                        Extraction Mass (kg) - Experimental
                       </TableCell>
                       <TableCell align="right">
-                        {convertToExponential(row.calculated)}
+                        Extraction Mass (kg) - Calculated
                       </TableCell>
                     </TableRow>
-                  ))}
-                </TableBody>
-              </Table>
-            </TableContainer>
+                  </TableHead>
+                  <TableBody>
+                    {data.map((row, index) => (
+                      <TableRow key={index}>
+                        <TableCell align="right">{row.time}</TableCell>
+                        <TableCell align="right">
+                          {convertToExponential(row.experimental)}
+                        </TableCell>
+                        <TableCell align="right">
+                          {convertToExponential(row.calculated)}
+                        </TableCell>
+                      </TableRow>
+                    ))}
+                  </TableBody>
+                </Table>
+              </TableContainer>
+            </Grid>
           </Grid>
-        </Grid>
+        ) : (
+          <Loading isOpen={!isReady} />
+        )}
       </CardContent>
     </Card>
   );

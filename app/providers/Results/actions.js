@@ -1,5 +1,6 @@
 import {
   FETCH_RESULTS,
+  FETCH_RESULTS_START,
   FETCH_RESULTS_SUCCESS,
   RESET_RESULTS,
 } from "./constants";
@@ -10,6 +11,15 @@ function fetchResults(models, data) {
     payload: {
       models,
       data,
+    },
+  };
+}
+
+function fetchResultsStart(id) {
+  return {
+    type: FETCH_RESULTS_START,
+    payload: {
+      id,
     },
   };
 }
@@ -34,4 +44,5 @@ export default {
   fetchResults,
   fetchResultsSuccess,
   resetResults,
+  fetchResultsStart,
 };

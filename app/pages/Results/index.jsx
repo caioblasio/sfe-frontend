@@ -20,12 +20,9 @@ const Results = ({ selectedModels, isLoading }) => {
   }, []);
 
   return (
-    <>
-      <Loading open={isLoading} />
-      <Page className={classes.root}>
-        <ResultsProvider />
-      </Page>
-    </>
+    <Page className={classes.root}>
+      <ResultsProvider />
+    </Page>
   );
 };
 

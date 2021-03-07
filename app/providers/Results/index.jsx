@@ -21,14 +21,18 @@ const Provider = ({
   experimentalValues,
   points,
   fetchResults,
+  fetchResultsStart,
   results,
-  isLoading,
   resetResults,
 }) => {
   const classes = useStyles();
   const history = useHistory();
 
   useEffect(() => {
+    selectedModels.forEach((model) => {
+      fetchResultsStart(model);
+    });
+
     const data = {
       values: {
         ...experimentalValues,
@@ -44,23 +48,21 @@ const Provider = ({
   const getChartData = () => {
     let data = [];
     Object.keys(results).forEach((key) => {
-      results[key].data
-        .map(({ time, experimental, calculated }) => ({
-          time: Number(time),
-          experimental: Number(experimental),
-          [`${key}`]: Number(calculated),
-        }))
-        .forEach((set, index) => {
-          data[index] = { ...data[index], ...set };
-        });
+      if (results[key].data) {
+        results[key].data
+          .map(({ time, experimental, calculated }) => ({
+            time: Number(time),
+            experimental: Number(experimental),
+            [`${key}`]: Number(calculated),
+          }))
+          .forEach((set, index) => {
+            data[index] = { ...data[index], ...set };
+          });
+      }
     });
 
     return data;
   };
-
-  if (isLoading) {
-    return null;
-  }
 
   return (
     <Grid container spacing={4} className={classes.root}>
@@ -107,6 +109,8 @@ const mapStateToProps = createStructuredSelector({
 });
 
 const mapDispatchToProps = (dispatch) => ({
+  fetchResultsStart: (model) =>
+    dispatch(ResultsActions.fetchResultsStart(model)),
   fetchResults: (models, data) =>
     dispatch(ResultsActions.fetchResults(models, data)),
   resetResults: () => {
