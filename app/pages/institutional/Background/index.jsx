@@ -344,12 +344,11 @@ const Background = () => {
                     <Typography>
                       Model that interprets the extraction process as a series
                       of chemical reactions. As in Sovová (1994), the solid is
-                      divided is two portions k<small>3</small> and (1-k
-                      <small>3</small>). The mass-transfer is regulated by
+                      divided is two portions k<small>1</small> and (1-k
+                      <small>1</small>). The mass-transfer is regulated by
                       coefficients k<small>2</small> in the fluid phase and k
-                      <small>1</small>
-                      in e solid phase, respectively, as presented in Equation
-                      14
+                      <small>3</small> in e solid phase, respectively, as
+                      presented in Equation 14
                     </Typography>
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
