@@ -1,7 +1,7 @@
 const API_ENVIRONMENTS_URL = {
   development: "http://localhost:3002",
   production: "http://ec2-3-129-70-128.us-east-2.compute.amazonaws.com",
-  productionSecure: "https://api.lapeamathmodels.xyz",
+  productionSecure: "https://api.lapeamath.xyz",
 };
 
 export const SCOPE = "providers/Results";

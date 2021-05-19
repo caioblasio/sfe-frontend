@@ -185,7 +185,7 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Sovova (1994)
+                      Sovova [1]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -253,7 +253,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Reverchon (1993)
+                      Reverchon [2]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -268,7 +268,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Esquivel (1999)
+                      Esquivel [3]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -283,7 +283,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Zekovic (2003)
+                      Zekovic [4]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -299,7 +299,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Nguyen (1991)
+                      Nguyen [5]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -315,7 +315,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Veljkovic and Milenovic (2002)
+                      Veljkovic and Milenovic [6]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -337,7 +337,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      PKM (2012)
+                      PKM [7]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -357,7 +357,7 @@ const Background = () => {
                   <Divider />
                   <Grid item xs={12}>
                     <Typography variant="h6" component="h2">
-                      Spline Model (2002)
+                      Spline Model [8]
                     </Typography>
                   </Grid>
                   <Grid item xs={12}>
@@ -370,6 +370,121 @@ const Background = () => {
                   </Grid>
                   <Grid item xs={12} className={classes.imgContainer}>
                     <img src={splineEq1} width={600} />
+                  </Grid>
+                  <Divider />
+                  <Grid item xs={12}>
+                    <Typography variant="h6" component="h2">
+                      References
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [1] H. Sovová, Rate of the vegetable oil extraction with
+                      supercritical CO2 - I. modelling of extraction curves,
+                      Chem. Eng. Sci. 49 (1994) 409–414.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1016/0009-2509(94)87012-8"
+                      >
+                        https://doi.org/10.1016/0009-2509(94)87012-8
+                      </a>
+                      .
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [2] E. Reverchon, G. Donsi, L.S. Osséo, Modeling of
+                      Supercritical Fluid Extraction from Herbaceous Matrices,
+                      Ind. Eng. Chem. Res. 32 (1993) 2721–2726.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1021/ie00023a039"
+                      >
+                        https://doi.org/10.1021/ie00023a039
+                      </a>
+                      .
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [3] M.M. Esquível, M.G. Bernardo-Gil, M.B. King,
+                      Mathematical models for supercritical extraction of olive
+                      husk oil, J. Supercrit. Fluids. 16 (1999) 43–58.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1016/S0896-8446(99)00014-5"
+                      >
+                        https://doi.org/10.1016/S0896-8446(99)00014-5
+                      </a>
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [4] Z.P. Zeković, Ž.D. Lepojević, S.G. Milošević, A.Š.
+                      Tolić, Modeling of the thyme: Liquid carbon dioxide
+                      extraction system, Acta Period. Technol. 148 (2003)
+                      125–133.{" "}
+                      <a
+                        target="_blank"
+                        href="http://www.doiserbia.nb.rs/Article.aspx?id=1450-71880334125Z#.VjMuVNIvfcs"
+                      >
+                        http://www.doiserbia.nb.rs/Article.aspx?id=1450-71880334125Z#.VjMuVNIvfcs
+                      </a>
+                      .
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [5] K. Nguyen, P. Barton, J.S. Spencer, Supercritical
+                      carbon dioxide extraction of vanilla, J. Supercrit.
+                      Fluids. 4 (1991) 40–46.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1016/0896-8446(91)90029-6"
+                      >
+                        https://doi.org/10.1016/0896-8446(91)90029-6
+                      </a>
+                      .
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [6] V.B. Veljković, D.M. Milenović, Extraction of
+                      resinoids from St. John’s wort (Hypericum perforatum L).
+                      II. Modeling of extraction kinetics, Hem. Ind. 56 (2002)
+                      60–67.
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [7] S. Maksimovic, J. Ivanovic, D. Skala, Supercritical
+                      extraction of essential oil from Mentha and mathematical
+                      modelling- the influence of plant particle size, Procedia
+                      Eng. 42 (2012) 1767–1777.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1016/j.proeng.2012.07.571"
+                      >
+                        https://doi.org/10.1016/j.proeng.2012.07.571
+                      </a>
+                      .
+                    </Typography>
+                  </Grid>
+                  <Grid item xs={12}>
+                    <Typography>
+                      [8] V.M. Rodrigues, P.T.V. Rosa, M.O.M. Marques, A.J.
+                      Petenate, M.A.A. Meireles, Supercritical extraction of
+                      essential oil from aniseed (Pimpinella anisum L) using
+                      CO2: Solubility, kinetics, and composition data, J. Agric.
+                      Food Chem. 51 (2003) 1518–1523.{" "}
+                      <a
+                        target="_blank"
+                        href="https://doi.org/10.1021/jf0257493"
+                      >
+                        https://doi.org/10.1021/jf0257493
+                      </a>
+                      .
+                    </Typography>
                   </Grid>
                 </Grid>
               </Grid>
